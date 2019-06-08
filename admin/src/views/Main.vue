@@ -1,77 +1,84 @@
 <template>
-  <el-container style="height: 100vh;">
-    <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
-      <el-menu :default-openeds="['1', '3']">
+  <el-container>
+    <el-aside width="200px">
+      <el-menu router :default-openeds="['2', '2-1','2-2']" style="height: 100vh;">
+
         <el-submenu index="1">
-          <template slot="title"><i class="el-icon-message"></i>导航一</template>
-          <el-menu-item-group>
-            <template slot="title">分组一</template>
-            <el-menu-item index="1-1">选项1</el-menu-item>
-            <el-menu-item index="1-2">选项2</el-menu-item>
-          </el-menu-item-group>
-          <el-menu-item-group title="分组2">
-            <el-menu-item index="1-3">选项3</el-menu-item>
-          </el-menu-item-group>
-          <el-submenu index="1-4">
-            <template slot="title">选项4</template>
-            <el-menu-item index="1-4-1">选项4-1</el-menu-item>
+          <template slot="title">
+            <i class="el-icon-notebook-2"></i>图书管理
+          </template>
+          <el-submenu index="1-1">
+            <template slot="title">图书管理</template>
+            <el-menu-item index="/book/create"><i class="el-icon-circle-plus"></i>新建图书<i class="el-icon-arrow-right"></i> </el-menu-item>
+            <el-menu-item index="/book/list"><i class="el-icon-document-copy"></i>图书列表<i class="el-icon-arrow-right"></i></el-menu-item>
           </el-submenu>
+
+          <el-submenu index="1-2">
+            <template slot="title">分类管理</template>
+            <el-menu-item index="/book/categories/create"><i class="el-icon-circle-plus"></i>新建分类<i class="el-icon-arrow-right"></i></el-menu-item>
+            <el-menu-item index="/book/categories/list"><i class="el-icon-document-copy"></i>分类列表<i class="el-icon-arrow-right"></i></el-menu-item>
+          </el-submenu>
+
         </el-submenu>
+
         <el-submenu index="2">
-          <template slot="title"><i class="el-icon-menu"></i>导航二</template>
-          <el-menu-item-group>
-            <template slot="title">分组一</template>
-            <el-menu-item index="2-1">选项1</el-menu-item>
-            <el-menu-item index="2-2">选项2</el-menu-item>
-          </el-menu-item-group>
-          <el-menu-item-group title="分组2">
-            <el-menu-item index="2-3">选项3</el-menu-item>
-          </el-menu-item-group>
-          <el-submenu index="2-4">
-            <template slot="title">选项4</template>
-            <el-menu-item index="2-4-1">选项4-1</el-menu-item>
+          <template slot="title">
+            <i class="el-icon-user"></i>读者管理
+          </template>
+          <el-submenu index="2-1">
+            <template slot="title">读者信息管理</template>
+            <el-menu-item index="/book/create"><i class="el-icon-circle-plus"></i>新增读者<i class="el-icon-arrow-right"></i> </el-menu-item>
+            <el-menu-item index="/book/list"><i class="el-icon-user-solid"></i>读者列表<i class="el-icon-arrow-right"></i></el-menu-item>
+          </el-submenu>
+
+          <el-submenu index="2-2">
+            <template slot="title">安全管理</template>
+            <el-menu-item index="/book/categories/create"><i class="el-icon-lock"></i>修改密码<i class="el-icon-arrow-right"></i></el-menu-item>
           </el-submenu>
         </el-submenu>
+
         <el-submenu index="3">
-          <template slot="title"><i class="el-icon-setting"></i>导航三</template>
-          <el-menu-item-group>
-            <template slot="title">分组一</template>
-            <el-menu-item index="3-1">选项1</el-menu-item>
-            <el-menu-item index="3-2">选项2</el-menu-item>
-          </el-menu-item-group>
-          <el-menu-item-group title="分组2">
-            <el-menu-item index="3-3">选项3</el-menu-item>
-          </el-menu-item-group>
-          <el-submenu index="3-4">
-            <template slot="title">选项4</template>
-            <el-menu-item index="3-4-1">选项4-1</el-menu-item>
+          <template slot="title">
+            <i class="el-icon-data-line"></i>运营管理
+          </template>
+          <el-submenu index="3-1">
+            <template slot="title">轮播图管理</template>
+            <el-menu-item index="/book/create"><i class="el-icon-circle-plus"></i>新增轮播图<i class="el-icon-arrow-right"></i> </el-menu-item>
+            <el-menu-item index="/book/list"><i class="el-icon-film"></i>轮播图列表<i class="el-icon-arrow-right"></i></el-menu-item>
           </el-submenu>
         </el-submenu>
+
+        <el-submenu index="4">
+          <template slot="title">
+            <i class="el-icon-s-custom "></i>管理员
+          </template>
+           <el-menu-item index="1-1"><i class="el-icon-s-check"></i>新增管理员<i class="el-icon-arrow-right"></i></el-menu-item>
+          <el-menu-item index="1-2"><i class="el-icon-lock"></i>管理员列表<i class="el-icon-arrow-right"></i></el-menu-item>
+        </el-submenu>
+
+
+
       </el-menu>
     </el-aside>
 
     <el-container>
       <el-header style="text-align: right; font-size: 12px">
-        <el-dropdown>
-          <i class="el-icon-setting" style="margin-right: 15px"></i>
+          <span style="margin-right:15px;font-size:14px;">admin</span>
+        <el-dropdown id="dropdown" >
+          <i class="el-icon-setting" style="margin-right: 15px"> 设置<i class="el-icon-arrow-down el-icon--right"></i></i>
           <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item>查看</el-dropdown-item>
-            <el-dropdown-item>新增</el-dropdown-item>
-            <el-dropdown-item>删除</el-dropdown-item>
+            <el-dropdown-item>修改个人信息</el-dropdown-item>
+            <el-dropdown-item>修改密码</el-dropdown-item>
+            <el-dropdown-item divided>退出</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
-        <span>王小虎</span>
+        
+        
       </el-header>
 
       <el-main>
-        <el-table :data="tableData">
-          <el-table-column prop="date" label="日期" width="140">
-          </el-table-column>
-          <el-table-column prop="name" label="姓名" width="120">
-          </el-table-column>
-          <el-table-column prop="address" label="地址">
-          </el-table-column>
-        </el-table>
+        <router-view></router-view>
+
       </el-main>
     </el-container>
   </el-container>
@@ -80,7 +87,8 @@
 
 <style>
   .el-header {
-    background-color: #B3C0D1;
+    /* background-color: #a1ee91; */
+    border-bottom: 1px solid #e7e7e7;
     color: #333;
     line-height: 60px;
   }
