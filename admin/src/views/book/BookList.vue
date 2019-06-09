@@ -1,34 +1,79 @@
 <template>
   <div class="about">
-    <h1>图书列表</h1>
+    <div>
+      <h1>图书列表</h1>
+      <!-- style="margin-left:15px;" -->
+      <!-- <el-input v-model="search" placeholder="请输入内容"></el-input> -->
+      <!-- <el-form label-width="120px" @submit.native.prevent="byNameSearch"> -->
+      
+       <!--  <el-col :span="4">
+          <el-input placeholder="请输入图书名" v-model="bookname" class="input-with-select">
+          </el-input>
+        </el-col>
+        
+        
+        <el-button type="primary" icon="el-icon-search" native-type="submit" @click="byNameSearch(this.bookname)">搜索</el-button>
+        -->
+
+    
+
+
+
+    </div>
+
     <el-table :data="items">
 
       <el-table-column prop="_id" label="图书编号" width="240"></el-table-column>
-      <el-table-column prop="name" label="图书名称" width="200"></el-table-column>
-      <el-table-column prop="category.name" label="图书分类" ></el-table-column>
-
-
-
-      <el-table-column fixed="right" label="操作" width="180">
+      <el-table-column prop="name" label="图书名称" width="180"></el-table-column>
+      <el-table-column prop="category.name" label="图书分类" width="150"></el-table-column>
+      <el-table-column prop="author" label="作者" width="150"></el-table-column>
+      <el-table-column prop="img" label="封面图片" width="200">
         <template slot-scope="scope">
-          <el-button type="success" size="small" @click="$router.push(`/book/edit/${scope.row._id}`)" icon="el-icon-edit">修改
+          <img :src="scope.row.img" style="height:2rem;">
+        </template>
+      </el-table-column>
+      <el-table-column prop="total" label="图书数量" width="150"></el-table-column>
+      <el-table-column prop="remain" label="图书剩余" width="150"></el-table-column>
+
+
+
+      <el-table-column fixed="right" label="操作" width="300">
+        <template slot-scope="scope">
+          <el-button type="primary" size="small" @click="$router.push(`/book/add/${scope.row._id}`)"
+            icon="el-icon-delete">入库</el-button>
+
+          <el-button type="success" size="small" @click="$router.push(`/book/edit/${scope.row._id}`)"
+            icon="el-icon-edit">修改
           </el-button>
           <el-button type="danger" size="small" @click="remove(scope.row)" icon="el-icon-delete">删除</el-button>
         </template>
       </el-table-column>
 
     </el-table>
+  <!--   <div style="margin-top:7px;">
+      <el-pagination background layout="prev, pager, next" :total="10"></el-pagination>
+    </div> -->
+
+
+
   </div>
 </template>
 
 <script>
   export default {
+    
     data() {
       return {
-        items: []
+        items: [],
+        bookname:''
+        
       }
     },
     methods: {
+       async byNameSearch(bookname) {
+        const res = await this.$http.get(`book/books/${this.bookname}`)
+        this.items = res.data
+      },
       async fetch() {
         const res = await this.$http.get('book/books')
         this.items = res.data

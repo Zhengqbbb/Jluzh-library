@@ -6,6 +6,21 @@ const schema = new mongoose.Schema({
   },
   category:{
     type: mongoose.SchemaTypes.ObjectId,ref: 'Category'
+  },
+  author:{
+    type: String
+  },
+  total:{
+    type: Number
+  },
+  remain:{
+    type: Number
+  },
+  img:{
+    type: String
+  },
+  message:{
+    type: String 
   }
 })
 

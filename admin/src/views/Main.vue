@@ -1,7 +1,8 @@
 <template>
   <el-container>
+    
     <el-aside width="200px">
-      <el-menu router :default-openeds="['2', '2-1','2-2']" style="height: 100vh;">
+      <el-menu router  style="height: 100vh;" :default-active="$route.path"  >
 
         <el-submenu index="1">
           <template slot="title">
@@ -27,13 +28,13 @@
           </template>
           <el-submenu index="2-1">
             <template slot="title">读者信息管理</template>
-            <el-menu-item index="/book/create"><i class="el-icon-circle-plus"></i>新增读者<i class="el-icon-arrow-right"></i> </el-menu-item>
-            <el-menu-item index="/book/list"><i class="el-icon-user-solid"></i>读者列表<i class="el-icon-arrow-right"></i></el-menu-item>
+            <el-menu-item index="/user/create"><i class="el-icon-circle-plus"></i>新增读者<i class="el-icon-arrow-right"></i> </el-menu-item>
+            <el-menu-item index="/user/list"><i class="el-icon-user-solid"></i>读者列表<i class="el-icon-arrow-right"></i></el-menu-item>
           </el-submenu>
 
           <el-submenu index="2-2">
             <template slot="title">安全管理</template>
-            <el-menu-item index="/book/categories/create"><i class="el-icon-lock"></i>修改密码<i class="el-icon-arrow-right"></i></el-menu-item>
+            <el-menu-item index="/user/password"><i class="el-icon-lock"></i>修改密码<i class="el-icon-arrow-right"></i></el-menu-item>
           </el-submenu>
         </el-submenu>
 
@@ -43,8 +44,8 @@
           </template>
           <el-submenu index="3-1">
             <template slot="title">轮播图管理</template>
-            <el-menu-item index="/book/create"><i class="el-icon-circle-plus"></i>新增轮播图<i class="el-icon-arrow-right"></i> </el-menu-item>
-            <el-menu-item index="/book/list"><i class="el-icon-film"></i>轮播图列表<i class="el-icon-arrow-right"></i></el-menu-item>
+            <el-menu-item index="/carousel/create"><i class="el-icon-circle-plus"></i>新增轮播图<i class="el-icon-arrow-right"></i> </el-menu-item>
+            <el-menu-item index="/carousel/list"><i class="el-icon-film"></i>轮播图列表<i class="el-icon-arrow-right"></i></el-menu-item>
           </el-submenu>
         </el-submenu>
 
@@ -52,8 +53,8 @@
           <template slot="title">
             <i class="el-icon-s-custom "></i>管理员
           </template>
-           <el-menu-item index="1-1"><i class="el-icon-s-check"></i>新增管理员<i class="el-icon-arrow-right"></i></el-menu-item>
-          <el-menu-item index="1-2"><i class="el-icon-lock"></i>管理员列表<i class="el-icon-arrow-right"></i></el-menu-item>
+           <el-menu-item index="/admin/create"><i class="el-icon-s-check"></i>新增管理员<i class="el-icon-arrow-right"></i></el-menu-item>
+          <el-menu-item index="/carousel/list"><i class="el-icon-lock"></i>管理员列表<i class="el-icon-arrow-right"></i></el-menu-item>
         </el-submenu>
 
 
