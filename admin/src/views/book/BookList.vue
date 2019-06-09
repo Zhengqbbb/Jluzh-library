@@ -32,8 +32,8 @@
           <img :src="scope.row.img" style="height:2rem;">
         </template>
       </el-table-column>
-      <el-table-column prop="total" label="图书数量" width="150"></el-table-column>
-      <el-table-column prop="remain" label="图书剩余" width="150"></el-table-column>
+      <el-table-column prop="total" label="图书数量" width="100"></el-table-column>
+      <el-table-column prop="remain" label="图书剩余" width="100"></el-table-column>
 
 
 
