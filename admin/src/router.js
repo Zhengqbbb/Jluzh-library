@@ -1,24 +1,39 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
+import Login from './views/Login'
 import Main from './views/Main.vue'
+//分类
 import CategoryEdit from './views/book/CategoryEdit.vue'
 import CategoryList from './views/book/CategoryList.vue'
-
+//图书
 import BookEdit from './views/book/BookEdit.vue'
 import BookList from './views/book/BookList.vue'
 import BookAdd from './views/book/BookAdd.vue'
-
+//读者
 import UserEdit from './views/user/UserEdit.vue'
 import UserList from './views/user/UserList.vue'
 import UserPass from './views/user/UserPassword.vue'
+//广告
+import AdEdit from './views/ads/AdEdit'
+import AdList from './views/ads/AdList'
+//管理员
+import AdminAdd from './views/admin/AdminAdd'
+import AdminEdit from './views/admin/AdminEdit'
+import AdminList from './views/admin/AdminList.vue'
+import AdminPass from './views/admin/AdminPassword.vue'
 
 
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   routes: [
+    {
+      path: '/login',
+      name: 'Login',
+      component: Login,
+      meta:{isPublic: true}
+    },
     {
       path: '/',
       name: 'Main',
@@ -38,7 +53,25 @@ export default new Router({
         {path: '/user/edit/:id',component: UserEdit,props: true},
         {path: '/user/list',component: UserList},
         {path: '/user/password',component: UserPass},
+
+        {path: '/ads/create',component: AdEdit},
+        {path: '/ads/edit/:id',component: AdEdit,props: true},
+        {path: '/ads/list',component: AdList},
+
+        {path: '/admin_users/create',component: AdminAdd},
+        {path: '/admin_users/edit/:id',component: AdminEdit,props: true},
+        {path: '/admin_users/list',component: AdminList},
+        {path: '/admin_users/password',component: AdminPass},
     ]
    },
 ]
 })
+
+
+router.beforeEach((to, from ,next)=>{
+  if(!to.meta.isPublic && !localStorage.token){
+    return next('/login')
+  }
+  next()
+})
+export default router

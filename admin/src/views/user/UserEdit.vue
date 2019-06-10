@@ -65,6 +65,7 @@
           res = this.$http.post('user/users', this.model)
         }
 
+        res = await this.$http.get('user/users')
         this.$router.push('/user/list')
         this.$message({
           type: 'success',

@@ -5,20 +5,19 @@
       <!-- style="margin-left:15px;" -->
       <!-- <el-input v-model="search" placeholder="请输入内容"></el-input> -->
       <!-- <el-form label-width="120px" @submit.native.prevent="byNameSearch"> -->
-      
-       <!--  <el-col :span="4">
-          <el-input placeholder="请输入图书名" v-model="bookname" class="input-with-select">
-          </el-input>
+      <!-- <el-form label-width="120px" @submit.native.prevent="byNameSearch('bookname')">
+        <el-col :span="5" style="margin=0px;">
+          <el-form-item>
+            <el-input placeholder="请输入图书名" v-model="bookname" class="input-with-select"></el-input>
+          </el-form-item>
         </el-col>
-        
-        
-        <el-button type="primary" icon="el-icon-search" native-type="submit" @click="byNameSearch(this.bookname)">搜索</el-button>
-        -->
 
-    
-
-
-
+        <el-col :span="4" class="qb">
+          <el-form-item class="qb">
+            <el-button type="primary" icon="el-icon-search" native-type="submit" >搜索</el-button>
+          </el-form-item>
+        </el-col>
+      </el-form> -->
     </div>
 
     <el-table :data="items">
@@ -50,28 +49,30 @@
       </el-table-column>
 
     </el-table>
-  <!--   <div style="margin-top:7px;">
+    <!--   <div style="margin-top:7px;">
       <el-pagination background layout="prev, pager, next" :total="10"></el-pagination>
     </div> -->
 
 
-
+    <el-backtop target=".page-component__scroll .el-scrollbar__wrap"></el-backtop>
   </div>
 </template>
 
 <script>
   export default {
-    
+
     data() {
       return {
         items: [],
-        bookname:''
-        
+        bookname: ''
+
       }
     },
     methods: {
-       async byNameSearch(bookname) {
-        const res = await this.$http.get(`book/books/${this.bookname}`)
+      
+
+      async byNameSearch(bookname) {
+        const res = await this.$http.get(`/search/${this.bookname}`,this.bookname)
         this.items = res.data
       },
       async fetch() {
@@ -101,3 +102,10 @@
     }
   }
 </script>
+
+<style>
+.qb{
+  margin: 0px;
+  padding: 0px
+}
+</style>

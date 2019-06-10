@@ -2,7 +2,7 @@
   <div class="about">
     <h1> 图书入库</h1>
     <el-form label-width="120px" @submit.native.prevent="saveform('form')" :model="form" ref="form">
-
+      
       <el-form-item label="图书名称">
         <el-col :span="4">
           <el-input v-model="model.name" :disabled="true"></el-input>
