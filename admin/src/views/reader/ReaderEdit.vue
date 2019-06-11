@@ -1,11 +1,17 @@
 <template>
   <div class="about">
-    <h1> {{id? '修改' : '新建'}}读者信息</h1>
+    <h1> {{id? '修改' : '新建'}}读者账户</h1>
     <el-form label-width="120px" @submit.native.prevent="saveform('model')" :model="model" :rules="rules" ref="model">
 
-      <el-form-item label="读者名称" prop="name">
+      <el-form-item label="读者用户名:" prop="username">
         <el-col :span="4">
-          <el-input v-model="model.name"></el-input>
+          <el-input v-model="model.username" clearable></el-input>
+        </el-col>
+      </el-form-item>
+
+      <el-form-item label="读者密码:" prop="password">
+        <el-col :span="4">
+          <el-input v-model="model.password" type="password" clearable></el-input>
         </el-col>
       </el-form-item>
 
@@ -60,20 +66,20 @@
       async save() {
         let res
         if (this.id) {
-          res = this.$http.put(`/user/users/${this.id}`, this.model)
+          res = this.$http.put(`/reader/reader_users/${this.id}`, this.model)
         } else {
-          res = this.$http.post('user/users', this.model)
+          res = this.$http.post('reader/reader_users', this.model)
         }
 
-        res = await this.$http.get('user/users')
-        this.$router.push('/user/list')
+        res = await this.$http.get('reader/reader_users')
+        this.$router.push('/reader/list')
         this.$message({
           type: 'success',
           message: '保存成功'
         })
       },
       async fetch() {
-        const res = await this.$http.get(`/user/users/${this.id}`)
+        const res = await this.$http.get(`/reader/reader_users/${this.id}`)
         this.model = res.data
       },
 

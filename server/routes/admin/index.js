@@ -82,9 +82,9 @@ const authMiddleware = require('../../middleware/auth')
 
 
   //用户资源路由
-  app.use('/admin/api/user/:resource', authMiddleware() ,async (req, res, next) => {
+  app.use('/admin/api/reader/:resource', authMiddleware() ,async (req, res, next) => {
     const modelName = require('inflection').classify(req.params.resource)
-    req.Model = require(`../../models/user/${modelName}`)
+    req.Model = require(`../../models/reader/${modelName}`)
     next()
   }, router)
 

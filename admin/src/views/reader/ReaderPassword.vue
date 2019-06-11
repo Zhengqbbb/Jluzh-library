@@ -38,23 +38,23 @@
       async save() {
         let res
         if (this.id) {
-          res = this.$http.put(`/book/books/${this.id}`, this.model)
+          res = this.$http.put(`/reader/rader_users/${this.id}`, this.model)
         } else {
-          res = this.$http.post('book/books', this.model)
+          res = this.$http.post('reader/rader_users', this.model)
         }
 
-        this.$router.push('/book/list')
+        this.$router.push('/reader/list')
         this.$message({
           type: 'success',
           message: '保存成功'
         })
       },
       async fetch() {
-        const res = await this.$http.get(`/book/books/${this.id}`)
+        const res = await this.$http.get(`/reader/rader_users/${this.id}`)
         this.model = res.data
       },
       async fetchCategoryOption() {
-        const res = await this.$http.get(`book/categories`)
+        const res = await this.$http.get(`reader/categories`)
         this.categoryOption = res.data
       }
     },

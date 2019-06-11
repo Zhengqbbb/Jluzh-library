@@ -3,7 +3,7 @@
     <h1> 修改个人信息</h1>
     <el-form label-width="120px" @submit.native.prevent="saveform('model')" :model="model" :rules="rules" ref="model">
 
-      <el-form-item label="姓名" prop="username">
+      <el-form-item label="用户名账户:" prop="username">
         <el-col :span="4">
           <el-input v-model="model.username"></el-input>
         </el-col>

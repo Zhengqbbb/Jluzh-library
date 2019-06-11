@@ -13,7 +13,7 @@
     <el-table :data="items">
 
       <el-table-column prop="_id" label="读者编号" width="240"></el-table-column>
-      <el-table-column prop="name" label="读者姓名"></el-table-column>
+      <el-table-column prop="username" label="用户名"></el-table-column>
      
 
 
@@ -22,7 +22,7 @@
         <template slot-scope="scope">
           
 
-          <el-button type="success" size="small" @click="$router.push(`/user/edit/${scope.row._id}`)"
+          <el-button type="success" size="small" @click="$router.push(`/reader/edit/${scope.row._id}`)"
             icon="el-icon-edit">修改
           </el-button>
           <el-button type="danger" size="small" @click="remove(scope.row)" icon="el-icon-delete">删除</el-button>
@@ -49,17 +49,17 @@
     methods: {
       
       async fetch() {
-        const res = await this.$http.get('user/users')
+        const res = await this.$http.get('reader/reader_users')
         this.items = res.data
       },
       async remove(row) {
-        this.$confirm(`是否确定删除读者 "${row.name}"`, '提示', {
+        this.$confirm(`是否确定删除读者 "${row.username}"`, '提示', {
           confirmButtonText: '确定',
           cancelButtonText: '取消',
           type: 'warning'
         }).then(async () => {
           //请求接口
-          const res = await this.$http.delete(`user/users/${row._id}`)
+          const res = await this.$http.delete(`reader/reader_users/${row._id}`)
 
           this.$message({
             type: 'success',

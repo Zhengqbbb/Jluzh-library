@@ -10,9 +10,9 @@ import BookEdit from './views/book/BookEdit.vue'
 import BookList from './views/book/BookList.vue'
 import BookAdd from './views/book/BookAdd.vue'
 //读者
-import UserEdit from './views/user/UserEdit.vue'
-import UserList from './views/user/UserList.vue'
-import UserPass from './views/user/UserPassword.vue'
+import ReaderEdit from './views/reader/ReaderEdit.vue'
+import ReaderList from './views/reader/ReaderList.vue'
+import ReaderPass from './views/reader/ReaderPassword.vue'
 //广告
 import AdEdit from './views/ads/AdEdit'
 import AdList from './views/ads/AdList'
@@ -49,10 +49,10 @@ const router = new Router({
         {path: '/book/list/:bookname',component: BookList,props: true},
         {path: '/book/add/:id',component: BookAdd,props: true},
         
-        {path: '/user/create',component: UserEdit},
-        {path: '/user/edit/:id',component: UserEdit,props: true},
-        {path: '/user/list',component: UserList},
-        {path: '/user/password',component: UserPass},
+        {path: '/reader/create',component: ReaderEdit},
+        {path: '/reader/edit/:id',component: ReaderEdit,props: true},
+        {path: '/reader/list',component: ReaderList},
+        {path: '/reader/password',component: ReaderPass},
 
         {path: '/ads/create',component: AdEdit},
         {path: '/ads/edit/:id',component: AdEdit,props: true},

@@ -3,7 +3,7 @@
     <h1> 新增管理员</h1>
     <el-form label-width="120px" @submit.native.prevent="saveform('model')" :model="model" :rules="rules" ref="model" >
 
-      <el-form-item label="用户名" prop="username">
+      <el-form-item label="用户名账户" prop="username">
         <el-col :span="6">
           <el-input v-model="model.username" prop="username"></el-input>
         </el-col>
