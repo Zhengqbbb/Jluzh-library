@@ -7,7 +7,13 @@ module.exports = app => {
     mergeParams: true
   })
 
-
+//用户校验密码接口
+/* router.post('/admin/api/checkpassword', async (req, res,) => {
+  const reqPassword = req.body
+  const user = await req.Model.findById(req.param.id).select('+password')
+  const isValid = require('bcrypt').compareSync(reqPassword , user.password)
+  assert(isValid, 422 , 原始密码错误) 
+}) */
 
   //新增数据接口
   router.post('/', async (req, res,) => {

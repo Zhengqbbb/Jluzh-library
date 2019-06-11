@@ -61,7 +61,7 @@ const router = new Router({
         {path: '/admin_users/create',component: AdminAdd},
         {path: '/admin_users/edit/:id',component: AdminEdit,props: true},
         {path: '/admin_users/list',component: AdminList},
-        {path: '/admin_users/password',component: AdminPass},
+        {path: '/admin_users/password/:id',component: AdminPass,props: true},
     ]
    },
 ]

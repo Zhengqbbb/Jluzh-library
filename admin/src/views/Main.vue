@@ -137,7 +137,7 @@
         this.$router.push(`/admin_users/edit/${this.user._id}`)
       },
       editPassword() {
-        this.$router.push('/admin_users/password')
+        this.$router.push(`/admin_users/password/${this.user._id}`)
       },
       layout() {
         localStorage.clear()

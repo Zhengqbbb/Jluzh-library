@@ -1,19 +1,19 @@
 <template>
   <div class="about">
     <h1>修改密码</h1>
-    <el-form label-width="120px" @submit.native.prevent="save">
+    <el-form label-width="120px" @submit.native.prevent="saveform('model')" :model="model" :rules="rules" ref="model">
 
-      <el-form-item label="身份证号码">     
-        <el-col :span="4"><el-input v-model="model.name"></el-input></el-col>   
+      <el-form-item label="输入新密码:" prop="newpassword">
+        <el-col :span="4">
+          <el-input v-model="model.newpassword" clearable autocomplete="off"></el-input>
+        </el-col>
       </el-form-item>
-      <el-form-item label="输入新密码">     
-        <el-col :span="4"><el-input v-model="model.name"></el-input></el-col>   
+      <el-form-item label="重新输入密码:" prop="password">
+        <el-col :span="4">
+          <el-input v-model="model.password" clearable autocomplete="off"></el-input>
+        </el-col>
       </el-form-item>
-      <el-form-item label="重新输入密码">     
-        <el-col :span="4"><el-input v-model="model.name"></el-input></el-col>   
-      </el-form-item>
-      
-      
+
       <el-form-item>
         <el-button type="primary" native-type="submit">修改</el-button>
       </el-form-item>
@@ -29,39 +29,71 @@
       id: {}
     },
     data() {
+      const vaildatePass = (rule, value, callback) => {
+        if (value === '') {
+          callback(new Error('请输入密码'));
+        } else {
+          if (this.model.password !== '') {
+            this.$refs.model.validateField('checkpassword');
+          }
+          callback();
+        }
+      };
+      const vaildatePass2 = (rule, value, callback) => {
+        if (value === '') {
+          callback(new Error('请再次输入密码'));
+        } else if (value !== this.model.newpassword) {
+          callback(new Error('两次输入不一致'));
+        } else {
+          callback();
+        }
+      }
       return {
         model: {},
-        categoryOption: {}
+        rules: {
+          
+          newpassword: [{
+            validator: vaildatePass,
+            trigger: 'blur'
+          }, {
+            required: true,
+            message: '请输入新密码',
+            trigger: 'blur'
+          }],
+          password: [{
+            validator: vaildatePass2,
+            trigger: 'blur'
+          }, {
+            required: true,
+            message: '请重复确定密码',
+            trigger: 'blur'
+          }]
+        }
       }
     },
     methods: {
-      async save() {
-        let res
-        if (this.id) {
-          res = this.$http.put(`/book/books/${this.id}`, this.model)
-        } else {
-          res = this.$http.post('book/books', this.model)
-        }
-
-        this.$router.push('/book/list')
-        this.$message({
-          type: 'success',
-          message: '保存成功'
+      saveform(model) {
+        this.$refs[model].validate(valid => {
+          if (valid) {
+            this.save();
+          } else {
+            console.log('error submit!!')
+            return false
+          }
         })
       },
-      async fetch() {
-        const res = await this.$http.get(`/book/books/${this.id}`)
-        this.model = res.data
-      },
-      async fetchCategoryOption() {
-        const res = await this.$http.get(`book/categories`)
-        this.categoryOption = res.data
-      }
-    },
 
-    created() {
-      this.fetchCategoryOption()
-      this.id && this.fetch()
+      async save() {
+        const res = this.$http.put(`/admin/admin_users/${this.id}`, this.model)
+        await this.$http.get('admin/admin_users')
+        this.$router.push('/admin_users/list')
+        this.$message({
+          type: 'success',
+          message: '修改成功'
+        })
+      },
+
+
     }
   }
 </script>
