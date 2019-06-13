@@ -1,0 +1,59 @@
+//colors 
+$colors: ("primary":#ff9100,
+  "white":#fff,
+  "light": #f9f9f9,
+  "light-1": #d4d9de,
+  "grey-1":#eeeeee,
+  "grey": #999,
+  "dark-1":#333,
+  "dark":#222,
+  "black":#000,
+);
+//border-color
+$border-color: #d4d9de;
+
+//font size
+$base-font-size: 1rem;
+$font-size:(xs: 0.7778, //14
+  sm: 0.8889, //16
+  md: 1, //18
+  mmd: 1.1111,
+  lg: 1.2222, //22
+  xl: 1.9444, //35 
+);
+
+//line-height
+$base-line-height: 1.9444rem;
+$line-height:(xs: 0.8333,
+  sm: 1.2222,
+  md: 1.9444,
+  lg: 2.7778,
+  xl: 3.8889,
+);
+
+$flex-jc:(start: flex-start,
+  end: flex-end,
+  center: center,
+  between: space-between,
+  around: space-around,
+);
+
+$flex-ai:(start: flex-start,
+  end: flex-end,
+  center: center,
+  stretch: stretch,
+);
+
+//spacing
+$spacing-types: (m:margin, p: padding);
+$spacing-directions: (t: top, r: right, b: bottom, l: left);
+$base-spacing-size: 10px;
+$spacing-sizes:(
+  0:0,
+  s:0.25,
+  1:0.5,
+  2:1,
+  3:2,
+  4:3,
+  5:4,
+  10:30);
