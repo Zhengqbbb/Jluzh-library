@@ -22,10 +22,10 @@
     </div>
     <!-- end of swiper -->
     <!-- start of nav-icos -->
-    <div class="items d-flex w-common bg-white mt-2 ">
+    <div class="items d-flex  w-common bg-white mt-2 ">
       <!--  服务指南 -->
       <div class="nav-icos bd w-1  ">
-        <div class="top-nav d-flex px-2">
+        <div class="top-nav d-flex flex-wrap px-2">
           <i class="iconfont">&#xe614;</i>
           <div class="guide">服务指南</div>
           <div class="flex-1"></div>
@@ -75,7 +75,7 @@
 
       <!-- 新闻通告 -->
       <div class="nav-news bd  w-1 bg-white px-2">
-        <div class="top-nav  d-flex">
+        <div class="top-nav  d-flex flex-wrap">
           <i class="iconfont">&#xe617;</i>
           <div class="guide">新闻公告</div>
           <div class="flex-1"></div>
@@ -83,7 +83,7 @@
         </div>
         <div class="nav-items" v-for="n in 7" :key="n">
           <router-link to="/">
-            <div class="d-flex mt-1 lh-xs fs-sm">
+            <div class="d-flex flex-wrap mt-1 lh-xs fs-sm">
               <span class="title">[新闻]</span>
               <span>|</span>
               <span class="flex-1">qbqbqbqqbqb</span>
@@ -95,7 +95,7 @@
 
       <!-- 书籍推荐 -->
       <div class="nav-books bd w-2 bg-white px-2">
-        <div class="top-nav  d-flex">
+        <div class="top-nav  d-flex flex-wrap">
           <i class="iconfont">&#xe644;</i>
           <div class="guide ">书籍推荐</div>
           <div class="flex-1"></div>
@@ -103,12 +103,38 @@
         </div>
         <div class="swiper-book my-3">
           <swiper :options="swiperOption1">
-            <swiper-slide class="w-100 h-100"><img src="../assets/images/178x178.png"></swiper-slide>
-            <swiper-slide class="w-100 h-100"><img src="../assets/images/178x178.png"></swiper-slide>
-            <swiper-slide class="w-100 h-100"><img src="../assets/images/178x178.png"></swiper-slide>
-            <swiper-slide class="w-100 h-100"><img src="../assets/images/178x178.png"></swiper-slide>
-            <swiper-slide class="w-100 h-100"><img src="../assets/images/178x178.png"></swiper-slide>
-            <swiper-slide class="w-100 h-100"><img src="../assets/images/178x178.png"></swiper-slide>
+
+            <swiper-slide>
+              <router-link class="book-nav-link" to="/">
+                <div><img class="w-100 d-block m0a" src="../assets/images/1.jpg"></div>
+                <div class="book-name fs-xs text-grey text-center">软件工程导论</div>
+              </router-link>
+            </swiper-slide>
+
+            <swiper-slide>
+              <router-link class="book-nav-link" to="/">
+                <div><img class="w-100 d-block m0a" src="../assets/images/1.jpg"></div>
+                <div class="book-name fs-xs text-grey text-center">软件工程导论</div>
+              </router-link>
+            </swiper-slide>
+
+            <swiper-slide>
+              <router-link class="book-nav-link" to="/">
+                <div><img class="w-100 d-block m0a" src="../assets/images/1.jpg"></div>
+                <div class="book-name fs-xs text-grey text-center">软件工程导论</div>
+              </router-link>
+            </swiper-slide>
+
+            <swiper-slide>
+              <router-link class="book-nav-link" to="/">
+                <div><img class="w-100 d-block m0a" src="../assets/images/1.jpg"></div>
+                <div class="book-name fs-xs text-grey text-center">软件工程导论</div>
+              </router-link>
+            </swiper-slide>
+
+
+
+
             <div class="swiper-pagination padgination-book px-3 pb-1" slot="pagination"></div>
           </swiper>
         </div>
@@ -173,7 +199,7 @@
   }
 
   .swiper-book {
-    line-height: 100px;
+    line-height: 40px;
   }
 
   .padgination-book {
@@ -186,7 +212,7 @@
       }
     }
 
-    margin-bottom: -25px;
+
   }
 
 
@@ -247,6 +273,18 @@
       margin-left: 5px;
       margin-right: 2px;
 
+    }
+  }
+
+  .swiper-book {
+    swiper-slide:hover {
+      background-color: map-get($colors, 'grey')
+    }
+  }
+
+  .book-nav-link:hover {
+    .book-name {
+      color: map-get($colors, 'primary')
     }
   }
 </style>

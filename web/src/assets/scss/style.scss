@@ -114,6 +114,12 @@ $lineheight in $line-height {
 .h-100 {
   height: 410px;
 }
+.h-5{
+  height: 16px;
+}
+.w-90{
+  width: 90%;
+}
 
 .w-1 {
   width: 28%;
@@ -128,10 +134,13 @@ $lineheight in $line-height {
 
 
 
+
 .w-common {
   margin: auto;
   width: 75%;
 }
+
+
 
 swiper-slide {
   width: 100%;
