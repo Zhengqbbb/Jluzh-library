@@ -34,8 +34,6 @@ button {
   margin: 0;
   padding: 0;
   border: none;
-  outline-style: none;
-
 }
 
 body {
@@ -132,12 +130,24 @@ $lineheight in $line-height {
   margin-right: -1px;
 }
 
-
-
+.w-wechat{
+  width: 55%;
+}
+.w-wechat-1{
+  width: 85%;
+}
 
 .w-common {
   margin: auto;
   width: 75%;
+}
+
+.b-rl{
+  border-left: 1px solid map-get($colors,'grey-1');
+  border-right: 1px solid map-get($colors,'grey-1');
+}
+.b-r{
+  border-right: 1px solid map-get($colors,'grey-1');
 }
 
 
@@ -156,6 +166,14 @@ swiper-slide {
 
 .d-if {
   display: inline-flex;
+}
+
+.p-fix{
+ position: fixed;
+}
+
+.o-h{
+  overflow: hidden;
 }
 
 .flex-column {
@@ -272,6 +290,8 @@ $type in $spacing-types {
   }
 
 }
+
+
 
 .bd {
   border: 1px solid $border-color;

@@ -15,7 +15,11 @@ Vue.use(VueAwesomeSwiper, /* { default global options } */)
 
 import Card from './components/card.vue'
 Vue.component('m-card',Card)
-
+//axios
+import axios from 'axios'
+Vue.prototype.$http = axios.create({
+  baseURL: 'http://localhost:3000/web/api'
+})
 
 new Vue({
   router,
