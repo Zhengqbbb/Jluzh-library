@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from './views/Home.vue'
 import Main from './views/Main.vue'
 import Book from './views/Book.vue'
+import BookInfor from './views/book/BookInfor.vue'
 
 Vue.use(Router)
 
@@ -14,7 +15,8 @@ export default new Router({
       component: Main,
       children:[
         {path: '/',name:'home',component:Home},
-        {path: '/book',name:'book',component:Book}
+        {path: '/book',name:'book',component:Book},
+        {path: '/book/infor/:id',name:'bookinfor',component:BookInfor,props: true},
       ],
     },
     {

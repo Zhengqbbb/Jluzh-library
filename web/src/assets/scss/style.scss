@@ -76,7 +76,7 @@ $color in $colors {
 @each $sizeKey,
 $size in $font-size {
   .fs-#{$sizeKey} {
-    font-size: $size * $base-font-size;
+    font-size: $size * $base-font-size !important;
   }
 }
 
@@ -249,7 +249,9 @@ $type in $spacing-types {
     }
   }
 }
-
+.m0a{
+  margin: 0 auto;
+}
 
 //button
 .btn {
@@ -296,6 +298,8 @@ $type in $spacing-types {
 .bd {
   border: 1px solid $border-color;
 }
+
+
 
 .top-nav {
   .guide {

@@ -4,7 +4,7 @@
       <swiper :options="swiperOption">
         <!-- slides -->
         <swiper-slide v-for="(item,i) in items" :key="i">
-          <router-link :to="item.url">
+          <router-link tag="a" target="_blank" :to="item.url">
             <img class="w-100 h-100" :src="item.img" alt="">
           </router-link>
         </swiper-slide>
@@ -26,7 +26,7 @@
           <div class="flex-1"></div>
           <div><a href="#">更多 &gt;</a></div>
         </div>
-        <div class="nav-items d-if flex-wrap">
+        <div class="nav-items d-if flex-wrap my-4 mx-3  ">
           <router-link to="/">
             <div class="nav-item jc-center">
               <i class="iconfont">&#xe60d;</i>
@@ -111,12 +111,14 @@
           <i class="iconfont">&#xe644;</i>
           <div class="guide ">书籍推荐</div>
           <div class="flex-1"></div>
-          <div><a href="#">更多 &gt;</a></div>
+          <div>
+            <router-link to="/book">更多 &gt;</router-link>
+          </div>
         </div>
         <div class="swiper-book my-3">
-          <swiper :options="swiperOption1">
-            <swiper-slide v-for="(item,i) in books" :key="i">
-              <router-link class="book-nav-link" :to="item.url">
+          <swiper class="swiper-books" :options="swiperOption1">
+            <swiper-slide class="mt-3" v-for="(item,i) in books" :key="i">
+              <router-link tag="a" target="_blank" class="book-nav-link" :to="`/book/infor/${item._id}`">
                 <div><img class="w-100 d-block m0a" :src="item.img"></div>
                 <div class="book-name fs-xs text-grey text-center">{{item.name}}</div>
               </router-link>
@@ -163,17 +165,7 @@
           data: '12/12',
           url: '/'
         }],
-        books: [{
-            name: '计算机导论',
-            img: require('../assets/images/1.png'),
-            url: '/'
-          },
-          {
-            name: '计算机导论',
-            img: require('../assets/images/1.png'),
-            url: '/'
-          }
-        ],
+        books: [],
 
 
 
@@ -196,7 +188,6 @@
           spaceBetween: 30,
           observer: true, //修改swiper自己或子元素时，自动初始化swiper 
           observeParents: true, //修改swiper的父元素时，自动初始化swiper 
-          loop: true,
           autoplay: {
             delay: 4000,
             disableOnInteraction: false
@@ -216,10 +207,15 @@
       async fetchAd() {
         const res = await this.$http.get('home/ad')
         this.items = res.data.items
+      },
+      async fetchbooks() {
+        const res = await this.$http.get('home/book')
+        this.books = res.data
       }
     },
     created() {
       this.fetchAd()
+      this.fetchbooks()
     }
   }
 </script>
@@ -239,10 +235,12 @@
   }
 
   .swiper-book {
-    line-height: 40px;
+    line-height: 25px;
   }
 
   .padgination-book {
+    position: relative;
+    top: 83%;
     .swiper-pagination-bullet {
       opacity: 1;
       background: map-get($colors, 'grey-1');
@@ -267,10 +265,11 @@
 
 
   .nav-icos {
+
     .nav-item {
-      width: 97px;
-      margin: 10px;
-      margin-top: px;
+      width: 95px;
+      margin: 5px;
+
 
       .text {
         width: 100%;
@@ -282,6 +281,8 @@
   }
 
   .items {
+    height: 350px;
+
     a:hover {
       color: map-get($colors, 'primary')
     }
@@ -306,6 +307,7 @@
   }
 
   .nav-items {
+    
     .nav-item {
       border-radius: 10%;
     }

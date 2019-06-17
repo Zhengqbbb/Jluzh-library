@@ -15,9 +15,6 @@
         </el-col>
       </el-form-item>
 
-
-
-
       <el-form-item label="图书入库数量" prop="value" :rules="[
       { required: true, message: '数量不能为空', trigger: 'blur'},
       { type: 'number', message: '请输入数字', trigger: 'blur'}
@@ -27,18 +24,11 @@
         </el-col>
       </el-form-item>
 
-
-
-
       <el-form-item label="图书剩余">
         <el-col :span="4">
           <el-input v-model="model.remain" :disabled="true"></el-input>
         </el-col>
       </el-form-item>
-
-
-
-
 
       <el-form-item>
         <el-button type="primary" native-type="submit">保存</el-button>

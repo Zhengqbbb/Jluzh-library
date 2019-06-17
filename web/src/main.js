@@ -26,6 +26,8 @@ Vue.component('qb-book',BookCard)
 
 //axios
 import axios from 'axios'
+
+import './plugins/element.js'
 Vue.prototype.$http = axios.create({
   baseURL: 'http://localhost:3000/web/api'
 })

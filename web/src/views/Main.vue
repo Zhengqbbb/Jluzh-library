@@ -6,8 +6,8 @@
           <router-link to="/"><img src="../assets/images/logo.png" height="40"></router-link>
         </div>
         <div class="d-flex nav-items-left" v-for="(nav,i) in navs" :key="i">
-          <div class="nav-item px-4 pt-1 " :class="{active : active === i}" @click="active = i">
-            <router-link class="nav-link " :to="nav.path">{{nav.title}}</router-link>
+          <div class="nav-item px-4 pt-1 " :class="{active : active === i}" >
+            <router-link class="nav-link " @click="active = i" :to="nav.path">{{nav.title}}</router-link>
           </div>
         </div>
 
@@ -34,11 +34,11 @@
 
     <router-view :key="$route.path"></router-view>
 
-    <footer class="foot h-5">
+    <footer class="foot h-5 pt-1">
       jluzh-library &copy; by <div class="admin">Qbenben</div>
     </footer>
 
-   
+
   </div>
 </template>
 
@@ -68,13 +68,28 @@
       }
     },
     methods: {
-      enter(){
+      enter() {
         this.seen = true;
       },
-      leave(){
+      leave() {
         this.seen = false;
+      },
+      setActive() {
+        if (this.$route.name == "home") {
+          this.active=0;
+        } else if (this.$route.name == "book") {
+          this.active=3;
+        }else if (this.$route.name == "bookinfor") {
+          this.active=3;
+        }
       }
 
+    },
+    watch: {
+      '$route': 'setActive'
+    },
+    created() {
+      this.setActive()
     }
 
   }
@@ -100,9 +115,9 @@
 
   .nav {
     position: sticky;
-    top:0;
+    top: 0;
     z-index: 88;
-    
+
 
     .nav-item:hover {
       background-color: #eeeeee;
@@ -126,6 +141,7 @@
 
     .nav-item {
       border-radius: 10%;
+
       .iconfont {
         margin-left: 0;
         margin-right: 2px;
@@ -133,11 +149,9 @@
     }
   }
 
-  .wechat-img{
+  .wechat-img {
     line-height: 0;
     z-index: 99;
-    top:6%;
+    top: 6%;
   }
-
-
 </style>

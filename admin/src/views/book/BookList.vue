@@ -28,7 +28,7 @@
       <el-table-column prop="author" label="作者" width="150"></el-table-column>
       <el-table-column prop="img" label="封面图片" width="200">
         <template slot-scope="scope">
-          <img :src="scope.row.img" style="height:2rem;">
+          <img :src="scope.row.img" style="height:2.8rem;">
         </template>
       </el-table-column>
       <el-table-column prop="total" label="图书数量" width="100"></el-table-column>
@@ -39,7 +39,7 @@
       <el-table-column fixed="right" label="操作" width="300">
         <template slot-scope="scope">
           <el-button type="primary" size="small" @click="$router.push(`/book/add/${scope.row._id}`)"
-            icon="el-icon-delete">入库</el-button>
+            icon="el-icon-circle-plus">入库</el-button>
 
           <el-button type="success" size="small" @click="$router.push(`/book/edit/${scope.row._id}`)"
             icon="el-icon-edit">修改

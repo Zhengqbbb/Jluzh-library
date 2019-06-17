@@ -104,8 +104,8 @@
             },
             {
               min: 1,
-              max: 10,
-              message: '姓名请小于10位',
+              max: 20,
+              message: '姓名请小于20位',
               trigger: 'blur'
             }
           ],
@@ -123,8 +123,8 @@
             },
             {
               min: 1,
-              max: 50,
-              message: '图书介绍请少于50字',
+              max: 300,
+              message: '图书介绍请少于300字',
               trigger: 'blur'
             }
           ],
