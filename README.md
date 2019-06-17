@@ -33,3 +33,4 @@
 * router 路由管理器，对路由进行管理
 * Vue-Awesome-Swiper 组件用于首页轮播图,书籍推荐界面 Github:[https://github.com/surmon-china/vue-awesome-swiper]
 * axios 进行异步请求操作
+* CategoryCard BookCard 自定义封装分类与图书卡片组件

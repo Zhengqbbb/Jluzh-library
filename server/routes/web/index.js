@@ -4,7 +4,7 @@ module.exports = app => {
   
 
 
-
+//首页轮播图数据接口
   router.get('/home/ad', async (req, res) => {
     const Ad = require('../../models/admin/Ad')
     const Ads = await Ad.findOne({
@@ -13,6 +13,7 @@ module.exports = app => {
     res.send(Ads)
   })
 
+//图书列表
 
 
 
