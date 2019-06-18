@@ -282,7 +282,7 @@
 
   .items {
     height: 350px;
-
+    
     a:hover {
       color: map-get($colors, 'primary')
     }

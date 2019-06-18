@@ -34,7 +34,7 @@
 
     <router-view :key="$route.path"></router-view>
 
-    <footer class="foot h-5 pt-1">
+    <footer class="foot bg-white pt-1 ">
       jluzh-library &copy; by <div class="admin">Qbenben</div>
     </footer>
 
@@ -105,6 +105,10 @@
     text-align: center;
     font-size: 16px;
     font-weight: 300;
+    position: relative;
+   
+    bottom: 0;
+   
   }
 
   .admin {
