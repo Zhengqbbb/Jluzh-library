@@ -3,7 +3,7 @@
     <div class="bookinfor w-common bd d-flex jc-center my-5 p-3">
       <div class="book-img  my-5"><img width="300px" :src="books.img" alt=""></div>
       <div class="book-infors mx-5">
-        <el-form ref="form" :model="sizeForm" label-width="200px" >
+        <el-form ref="form"  label-width="200px">
 
           <el-form-item class="book-infor" label="图书编号：">
             {{books._id}}
@@ -26,7 +26,7 @@
           <el-form-item class="book-infor" label="图书简介：">
             <div class="bookmessage">{{books.message}}</div>
           </el-form-item>
-          
+
         </el-form>
       </div>
     </div>
@@ -38,23 +38,23 @@
     props: {
       id: {}
     },
-    data () {
+    data() {
       return {
-        books:{}
+        books: {}
       }
     },
     methods: {
       async fetch() {
         const res = await this.$http.get(`/book/infor/${this.id}`)
         this.books = res.data
-        if(res.data.remain > 0){
+        if (res.data.remain > 0) {
           this.books.state = '可借阅'
-        }else{
+        } else {
           this.books.state = '不可借阅'
         }
       }
     },
-    created () {
+    created() {
       this.fetch()
     }
 
@@ -77,17 +77,20 @@
   }
 
   .book-infor .el-form-item__content {
-    font-size: 22px;
+    font-size: 20px;
   }
-.book-state{
-  color: map-get($colors, 'primary')
-}
+
+  .book-state {
+    color: map-get($colors, 'primary')
+  }
+
   .book-infor .el-form-item__label {
-    font-size: 22px;
+    font-size: 20px;
   }
-  .bookmessage{
+
+  .bookmessage {
     width: 550px;
-    word-wrap:break-word; 
+    word-wrap: break-word;
     font-size: 18px;
   }
 </style>

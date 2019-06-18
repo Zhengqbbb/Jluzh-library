@@ -33,11 +33,11 @@
     width: 50%;
     margin: 5px auto;
     padding: 15px;
-    line-height: 15px;
+    line-height: 13px;
     background: map-get($colors, 'white');
     border: 1px solid map-get($colors, 'grey');
-    border-radius: 80%;
-    font-size: 12px;
+    border-radius: 20px;
+    font-size: 13px;
     transition: all ease-in-out 100ms;
   }
 
