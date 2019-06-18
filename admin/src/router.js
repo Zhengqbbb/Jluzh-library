@@ -13,9 +13,15 @@ import BookAdd from './views/book/BookAdd.vue'
 import ReaderEdit from './views/reader/ReaderEdit.vue'
 import ReaderList from './views/reader/ReaderList.vue'
 import ReaderPass from './views/reader/ReaderPassword.vue'
-//广告
+//运营
 import AdEdit from './views/ads/AdEdit'
 import AdList from './views/ads/AdList'
+import NewCategoryEdit from './views/ads/NewCategoryEdit'
+import NewCategoryList from './views/ads/NewCategoryList'
+import NewEdit from './views/ads/NewEdit'
+import NewList from './views/ads/NewList'
+import ServerEdit from './views/ads/ServerEdit'
+import ServerList from './views/ads/ServerList'
 //管理员
 import AdminAdd from './views/admin/AdminAdd'
 import AdminEdit from './views/admin/AdminEdit'
@@ -57,6 +63,15 @@ const router = new Router({
         {path: '/ads/create',component: AdEdit},
         {path: '/ads/edit/:id',component: AdEdit,props: true},
         {path: '/ads/list',component: AdList},
+        {path: '/ads/newcat/create',component: NewCategoryEdit},
+        {path: '/ads/newcat/edit/:id',component: NewCategoryEdit,props: true},
+        {path: '/ads/newcat/list',component: NewCategoryList},
+        {path: '/ads/new/create',component: NewEdit},
+        {path: '/ads/new/edit/:id',component: NewEdit,props: true},
+        {path: '/ads/new/list',component: NewList},
+        {path: '/ads/server/create',component: ServerEdit},
+        {path: '/ads/server/edit/:id',component: ServerEdit,props: true},
+        {path: '/ads/server/list',component: AdList},
 
         {path: '/admin_users/create',component: AdminAdd},
         {path: '/admin_users/edit/:id',component: AdminEdit,props: true},
