@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <h1>新闻列表</h1>
+    <h1>新闻分类列表</h1>
     <el-table :data="items">
 
       <el-table-column prop="_id" label="ID" ></el-table-column>

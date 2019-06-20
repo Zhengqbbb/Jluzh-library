@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <h1> {{id? '修改' : '新建'}}新闻</h1>
+    <h1> {{id? '修改' : '新建'}}新闻分类</h1>
     <el-form label-width="120px" @submit.native.prevent="saveform('model')" :model="model" :rules="rules" ref="model">
       <el-form-item label="分类名称" prop="name">
         <el-col :span="4">

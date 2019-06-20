@@ -78,9 +78,6 @@ const authMiddleware = require('../../middleware/auth')
     next()
   }, router)
 
-
-
-
   //用户资源路由
   app.use('/admin/api/reader/:resource', authMiddleware() ,async (req, res, next) => {
     const modelName = require('inflection').classify(req.params.resource)
@@ -90,6 +87,13 @@ const authMiddleware = require('../../middleware/auth')
 
   //广告资源路由
   app.use('/admin/api/ad/:resource', authMiddleware() ,async (req, res, next) => {
+    const modelName = require('inflection').classify(req.params.resource)
+    req.Model = require(`../../models/admin/${modelName}`)
+    next()
+  }, router)
+  
+  //新闻路由
+  app.use('/admin/api/new/:resource', authMiddleware() ,async (req, res, next) => {
     const modelName = require('inflection').classify(req.params.resource)
     req.Model = require(`../../models/admin/${modelName}`)
     next()

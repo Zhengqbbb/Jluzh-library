@@ -214,8 +214,8 @@
       }
     },
     created() {
-      this.fetchAd()
       this.fetchbooks()
+      this.fetchAd()
     }
   }
 </script>

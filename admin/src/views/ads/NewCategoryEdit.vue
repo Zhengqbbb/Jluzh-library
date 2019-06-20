@@ -1,6 +1,13 @@
+
+
+
+
+
+
+
 <template>
   <div class="about">
-    <h1> {{id? '修改' : '新建'}}新闻分类</h1>
+    <h1> {{id? '修改' : '新建'}}新闻</h1>
     <el-form label-width="120px" @submit.native.prevent="saveform('model')" :model="model" :rules="rules" ref="model">
       <el-form-item label="分类名称" prop="name">
         <el-col :span="4">
@@ -52,19 +59,19 @@
       async save() {
         let res
         if (this.id) {
-          res = this.$http.put(`book/categories/${this.id}`, this.model)
+          res = this.$http.put(`new/new_categories/${this.id}`, this.model)
         } else {
-          res = this.$http.post('book/categories', this.model)
+          res = this.$http.post('new/new_categories', this.model)
         }
-        res = await this.$http.get('book/categories')
-        this.$router.push('/book/categories/list')
+        res = await this.$http.get('new/new_categories')
+        this.$router.push('/ads/newcat/list')
         this.$message({
           type: 'success',
           message: '保存成功'
         })
       },
       async fetch() {
-        const res = await this.$http.get(`book/categories/${this.id}`)
+        const res = await this.$http.get(`new/new_categories/${this.id}`)
         this.model = res.data
       }
     },
