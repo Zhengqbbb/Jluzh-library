@@ -71,7 +71,7 @@ const router = new Router({
         {path: '/article/list',component: NewList},
         {path: '/server/create',component: ServerEdit},
         {path: '/server/edit/:id',component: ServerEdit,props: true},
-        {path: '/server/list',component: AdList},
+        {path: '/server/list',component: ServerList},
 
         {path: '/admin_users/create',component: AdminAdd},
         {path: '/admin_users/edit/:id',component: AdminEdit,props: true},
