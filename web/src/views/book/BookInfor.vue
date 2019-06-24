@@ -17,7 +17,7 @@
           <el-form-item class="book-infor" label="分类：">
             {{books.category.name}}
           </el-form-item>
-          <el-form-item class="book-infor" label="馆内藏书量：">
+          <el-form-item class="book-infor" label="馆内现有藏书量：">
             {{books.remain}}
           </el-form-item>
           <el-form-item class="book-infor book-state" label="当前状态：">
