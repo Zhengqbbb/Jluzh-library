@@ -65,7 +65,7 @@
   @import '../../assets/scss/style';
 
   .bookinfor {
-    min-height: 750px;
+    min-height: 720px;
     border-radius: 20px;
   }
 

@@ -36,6 +36,7 @@
 
     <footer class="foot bg-white pt-1 ">
       jluzh-library &copy; by <div class="admin">Qbenben</div>
+      <a target="_blank" href="https://github.com/Zhengqbbb/jluzh-library"><div class="iconfont icon-github"></div></a>
     </footer>
 
 
@@ -106,8 +107,10 @@
     font-size: 16px;
     font-weight: 300;
     position: relative;
-   
     bottom: 0;
+    .icon-github{
+      color: map-get($colors, 'primary');
+    }
    
   }
 
