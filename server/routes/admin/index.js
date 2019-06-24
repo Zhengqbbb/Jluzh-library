@@ -7,7 +7,7 @@ module.exports = app => {
     mergeParams: true
   })
 
-//用户校验密码接口
+//管理员修改密码接口
 /* router.post('/admin/api/checkpassword', async (req, res,) => {
   const reqPassword = req.body
   const user = await req.Model.findById(req.param.id).select('+password')
@@ -26,6 +26,8 @@ module.exports = app => {
     const queryOptions = {}
     if (req.Model.modelName === 'Book') {
       queryOptions.populate = 'category'
+    }else if(req.Model.modelName === 'Article'){
+      queryOptions.populate = 'categories'
     }
     const items = await req.Model.find().setOptions(queryOptions).limit(10)
     res.send(items)
@@ -92,8 +94,8 @@ const authMiddleware = require('../../middleware/auth')
     next()
   }, router)
   
-  //新闻路由
-  app.use('/admin/api/new/:resource', authMiddleware() ,async (req, res, next) => {
+  //新闻公告路由
+  app.use('/admin/api/article/:resource', authMiddleware() ,async (req, res, next) => {
     const modelName = require('inflection').classify(req.params.resource)
     req.Model = require(`../../models/admin/${modelName}`)
     next()

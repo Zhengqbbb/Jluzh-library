@@ -57,21 +57,21 @@
             </el-menu-item>
           </el-submenu>
           <el-submenu index="3-2">
-            <template slot="title">新闻管理</template>
-            <el-menu-item index="/ads/newcat/create"><i class="el-icon-collection-tag"></i>新增分类<i class="el-icon-arrow-right"></i>
+            <template slot="title">新闻公告管理</template>
+            <el-menu-item index="/article_cat/create"><i class="el-icon-collection-tag"></i>新增分类<i class="el-icon-arrow-right"></i>
             </el-menu-item>
-            <el-menu-item index="/ads/newcat/list"><i class="el-icon-house"></i>分类列表<i class="el-icon-arrow-right"></i>
+            <el-menu-item index="/article_cat/list"><i class="el-icon-house"></i>分类列表<i class="el-icon-arrow-right"></i>
             </el-menu-item>
-            <el-menu-item index="/ads/new/create"><i class="el-icon-circle-plus"></i>新增新闻<i class="el-icon-arrow-right"></i>
+            <el-menu-item index="/article/create"><i class="el-icon-circle-plus"></i>新增文章<i class="el-icon-arrow-right"></i>
             </el-menu-item>
-            <el-menu-item index="/ads/new/list"><i class="el-icon-chat-line-square"></i>新闻列表<i class="el-icon-arrow-right"></i>
+            <el-menu-item index="/article/list"><i class="el-icon-chat-line-square"></i>文章列表<i class="el-icon-arrow-right"></i>
             </el-menu-item>
           </el-submenu>
            <el-submenu index="3-3">
             <template slot="title">服务管理</template>
-            <el-menu-item index="/ads/server/create"><i class="el-icon-circle-plus"></i>新增服务<i class="el-icon-arrow-right"></i>
+            <el-menu-item index="/server/create"><i class="el-icon-circle-plus"></i>新增服务<i class="el-icon-arrow-right"></i>
             </el-menu-item>
-            <el-menu-item index="/ads/server/list"><i class="el-icon-message-solid"></i>服务列表<i class="el-icon-arrow-right"></i>
+            <el-menu-item index="/server/list"><i class="el-icon-message-solid"></i>服务列表<i class="el-icon-arrow-right"></i>
             </el-menu-item>
           </el-submenu>
         </el-submenu>
