@@ -6,8 +6,9 @@
       <el-table-column prop="_id" label="ID" ></el-table-column>
       <el-table-column prop="name" label="文章标题"></el-table-column>
       <el-table-column prop="categories[0].name" label="文章分类"></el-table-column>
-      <el-table-column prop="createdAt" label="创建时间"></el-table-column>
-      <el-table-column prop="updatedAt" label="最后更新时间"></el-table-column>
+      <el-table-column prop="createdAt" label="创建时间">
+        <template slot-scope="scope">{{ scope.row.createdAt | data }}</template>
+      </el-table-column>
       <el-table-column fixed="right" label="操作" width="180">
         <template slot-scope="scope">
           <el-button type="success" size="small" @click="$router.push(`/article/edit/${scope.row._id}`)" icon="el-icon-edit">修改
@@ -21,7 +22,14 @@
 </template>
 
 <script>
+import dayjs from 'dayjs'
+
   export default {
+    filters: {
+      data(val){
+        return dayjs(val).format('YYYY/MM/DD HH:mm')
+      }
+    },
     data() {
       return {
         items: []

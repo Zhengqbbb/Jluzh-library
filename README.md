@@ -14,6 +14,7 @@
 * axios 进行异步操作管理
 * localStorage 作登录状态管理
 * vue2-editor 作富文本编辑器
+* dayjs 对时间戳进行格式化
 
 
 ##  服务端
