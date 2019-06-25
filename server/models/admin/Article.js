@@ -9,7 +9,8 @@ const schema = new mongoose.Schema({
     ref: 'ArticleCategory'
   }],
   body: {
-    type: String
+    type: String,
+    select: false
   },
 }, {
   timestamps: true
