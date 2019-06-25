@@ -22,6 +22,11 @@ module.exports = app => {
     const books = await Book.find().lean()
     res.send(books)
   })
+  //首页新闻公告接口
+  router.get('/home/new', async (req, res) => {
+    const books = await Article.find().populate('categories').lean()
+    res.send(books)
+  })
 
   //图书列表
   router.get('/book/list', async (req, res) => {
@@ -112,7 +117,6 @@ module.exports = app => {
       name: '所有',
       newsList: await Article.find().populate('categories').limit(21).lean()
     })
-
     //添加categoryName
     articlelist.map(cat => {
       cat.newsList.map(news => {
@@ -122,9 +126,13 @@ module.exports = app => {
       })
       return cat
     })
-
-
     res.send(articlelist)
+  })
+
+  // 新闻详情页接口
+  router.get('/new/infor/:id', async (req, res) => {
+    const model = await Article.findById(req.params.id).select('+body').populate('category').lean()
+    res.send(model)
   })
 
 

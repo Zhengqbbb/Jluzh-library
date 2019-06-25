@@ -85,21 +85,23 @@
 
       </div>
 
-      <!-- 新闻通告 -->
+      <!-- 新闻通告 9-->
       <div class="nav-news bd  w-1 bg-white px-2">
         <div class="top-nav  d-flex flex-wrap">
           <i class="iconfont">&#xe617;</i>
           <div class="guide">新闻公告</div>
           <div class="flex-1"></div>
-          <div> <router-link to="/new">更多 &gt;</router-link></div>
+          <div>
+            <router-link to="/new">更多 &gt;</router-link>
+          </div>
         </div>
         <div class="nav-items" v-for="(item,i) in news" :key="i">
-          <router-link :to="item.url">
+          <router-link tag="a" target="_blank" :to="`/new/infor/${item._id}`">
             <div class="d-flex flex-wrap mt-1 lh-xs fs-sm">
-              <span class="title">[{{item.category}}]</span>
+              <span class="">[{{item.categories[0].name}}]</span>
               <span>|</span>
-              <span class="flex-1">{{item.title}}</span>
-              <span>{{item.data}}</span>
+              <div class="title flex-1">{{item.name}}</div>
+              <span>{{item.createdAt | date}}</span>
             </div>
           </router-link>
         </div>
@@ -134,40 +136,19 @@
 </template>
 
 <script>
+  import dayjs from 'dayjs'
   export default {
+    filters: {
+      date(val) {
+        return dayjs(val).format('MM/DD')
+      }
+    },
     name: 'carrousel',
     data() {
       return {
         items: [],
-        news: [{
-          category: '新闻',
-          title: 'qbqbqbqbqbqb',
-          data: '12/12',
-          url: '/'
-        }, {
-          category: '新闻',
-          title: 'qbqbqbqbqbqb',
-          data: '12/12',
-          url: '/'
-        }, {
-          category: '新闻',
-          title: 'qbqbqbqbqbqb',
-          data: '12/12',
-          url: '/'
-        }, {
-          category: '新闻',
-          title: 'qbqbqbqbqbqb',
-          data: '12/12',
-          url: '/'
-        }, {
-          category: '新闻',
-          title: 'qbqbqbqbqbqb',
-          data: '12/12',
-          url: '/'
-        }],
+        news: [],
         books: [],
-
-
 
         swiperOption1: {
           slidesPerView: 3,
@@ -211,11 +192,16 @@
       async fetchbooks() {
         const res = await this.$http.get('home/book')
         this.books = res.data
+      },
+      async fetchnews(){
+        const res = await this.$http.get('home/new')
+        this.news = res.data
       }
     },
     created() {
       this.fetchbooks()
       this.fetchAd()
+      this.fetchnews()
     }
   }
 </script>
@@ -241,6 +227,7 @@
   .padgination-book {
     position: relative;
     top: 83%;
+
     .swiper-pagination-bullet {
       opacity: 1;
       background: map-get($colors, 'grey-1');
@@ -282,7 +269,7 @@
 
   .items {
     height: 350px;
-    
+
     a:hover {
       color: map-get($colors, 'primary')
     }
@@ -307,7 +294,7 @@
   }
 
   .nav-items {
-    
+
     .nav-item {
       border-radius: 10%;
     }
@@ -316,6 +303,12 @@
       margin-left: 5px;
       margin-right: 2px;
 
+    }
+    .title{
+      display: inline-block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
   }
 

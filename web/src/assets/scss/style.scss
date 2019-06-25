@@ -142,6 +142,11 @@ $lineheight in $line-height {
   width: 75%;
 }
 
+.w-50 {
+  margin: 0 auto;
+  width: 75%;
+}
+
 .b-rl{
   border-left: 1px solid map-get($colors,'grey-1');
   border-right: 1px solid map-get($colors,'grey-1');

@@ -5,6 +5,7 @@ import Main from './views/Main.vue'
 import Book from './views/book/Book.vue'
 import BookInfor from './views/book/BookInfor.vue'
 import New from './views/new/New.vue'
+import NewInfor from './views/new/NewInfor.vue'
 
 Vue.use(Router)
 
@@ -19,6 +20,7 @@ export default new Router({
         {path: '/book',name:'book',component:Book},
         {path: '/book/infor/:id',name:'bookinfor',component:BookInfor,props: true},
         {path: '/new',name:'new',component:New},
+        {path: '/new/infor/:id',name:'newinfor',component:NewInfor,props: true},
       ],
     },
     {
