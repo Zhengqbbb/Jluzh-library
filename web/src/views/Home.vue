@@ -41,8 +41,8 @@
           </router-link>
           <router-link to="/">
             <div class="nav-item jc-center">
-              <i class="iconfont hot">&#xe638;</i>
-              <div class="text">热门活动</div>
+              <i class="iconfont hot">&#xe67c;</i>
+              <div class="text">本馆概要</div>
             </div>
           </router-link>
           <router-link to="/">
@@ -200,8 +200,8 @@
     },
     created() {
       this.fetchbooks()
-      this.fetchAd()
       this.fetchnews()
+      this.fetchAd()
     }
   }
 </script>

@@ -48,7 +48,7 @@
 
   .new-infor {
 
-    min-height: 720px;
+    min-height: 750px;
     border-radius: 20px;
 
     .title {

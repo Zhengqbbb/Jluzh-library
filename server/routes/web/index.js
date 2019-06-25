@@ -19,13 +19,17 @@ module.exports = app => {
   })
   //首页书籍推荐接口
   router.get('/home/book', async (req, res) => {
-    const books = await Book.find().lean()
+    const books = await Book.find().sort({
+      '_id': -1
+    }).lean()
     res.send(books)
   })
   //首页新闻公告接口
   router.get('/home/new', async (req, res) => {
-    const books = await Article.find().populate('categories').lean()
-    res.send(books)
+    const news = await Article.find().sort({
+      '_id': -1
+    }).populate('categories').limit(8).lean()
+    res.send(news)
   })
 
   //图书列表
@@ -46,9 +50,9 @@ module.exports = app => {
       },
       {
         $project: {
-         bookList:{
-           message: 0
-         }
+          bookList: {
+            message: 0
+          }
         }
       },
     ])
@@ -97,25 +101,27 @@ module.exports = app => {
       },
       {
         $project: {
-         newsList:{
-           body: 0
-         }
+          newsList: {
+            body: 0
+          }
         }
       },
       {
         //添加字段限制添加几个
         $addFields: {
           newsList: {
-            $slice: ['$newsList', 21],
+            $slice: ['$newsList', 21]
           }
         }
       }
     ])
 
-   //添加虚拟字段“所有”
-     articlelist.unshift({
+    //添加虚拟字段“所有”
+    articlelist.unshift({
       name: '所有',
-      newsList: await Article.find().populate('categories').limit(21).lean()
+      newsList: await Article.find().sort({
+        '_id': -1
+      }).populate('categories').limit(21).lean()
     })
     //添加categoryName
     articlelist.map(cat => {

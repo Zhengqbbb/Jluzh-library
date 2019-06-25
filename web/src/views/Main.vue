@@ -52,12 +52,12 @@
             path: '/'
           },
           {
-            title: '本馆概述',
+            title: '读者服务',
             path: '/'
           },
           {
-            title: '读者服务',
-            path: '/'
+            title: '新闻资讯',
+            path: '/new'
           },
           {
             title: '馆内图书',
