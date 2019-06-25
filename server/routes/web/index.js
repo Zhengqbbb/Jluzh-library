@@ -4,6 +4,7 @@ module.exports = app => {
   const Ad = require('../../models/admin/Ad')
   const Book = require('../../models/book/Book')
   const BookCats = require('../../models/book/Category')
+  
 
 
 
@@ -56,7 +57,7 @@ module.exports = app => {
 
   // 图书详情页接口
   router.get('/book/infor/:id', async (req, res) => {
-    const model = await Book.findById(req.params.id).populate('category').lean()
+    const model = await Book.findById(req.params.id).select('+message').populate('category').lean()
     res.send(model)
   })
 

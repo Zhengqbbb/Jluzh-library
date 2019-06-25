@@ -20,7 +20,8 @@ const schema = new mongoose.Schema({
     type: String
   },
   message:{
-    type: String 
+    type: String,
+    select: false
   }
 })
 

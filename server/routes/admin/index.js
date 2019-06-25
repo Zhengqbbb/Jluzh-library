@@ -3,6 +3,7 @@ module.exports = app => {
   const jwt = require('jsonwebtoken')
   const assert = require('http-assert')
   const AdminUser = require('../../models/admin/AdminUser')
+  const ArticleCategory = require('../../models/admin/ArticleCategory')
   const router = express.Router({
     mergeParams: true
   })
@@ -35,7 +36,7 @@ module.exports = app => {
 
   //获取详情接口
   router.get('/:id', async (req, res) => {
-    const model = await req.Model.findById(req.params.id)
+    const model = await req.Model.findById(req.params.id).select('+message').select('+body')
     res.send(model)
   })
   //修改接口
