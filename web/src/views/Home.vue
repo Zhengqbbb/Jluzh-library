@@ -91,7 +91,7 @@
           <i class="iconfont">&#xe617;</i>
           <div class="guide">新闻公告</div>
           <div class="flex-1"></div>
-          <div><a href="#">更多 &gt;</a></div>
+          <div> <router-link to="/new">更多 &gt;</router-link></div>
         </div>
         <div class="nav-items" v-for="(item,i) in news" :key="i">
           <router-link :to="item.url">

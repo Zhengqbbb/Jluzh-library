@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="book-navs b-rl w-common d-flex mt-4 px-5 pb-2">
+    <div class="book-navs b-rl w-common d-flex mt-3 px-5 pb-2">
       <div class="book-nav px-2 b-r" v-for="(category,i) in categories" :key="i" :class="{active : active=== i}"
         @click="$refs.cats.swiper.slideTo(i)">
         <div class="nav-link title">{{category.name}}</div>

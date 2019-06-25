@@ -4,7 +4,6 @@
       <div class="book-img  my-5"><img width="300px" :src="books.img" alt=""></div>
       <div class="book-infors mx-5">
         <el-form ref="form"  label-width="200px">
-
           <el-form-item class="book-infor" label="图书编号：">
             {{books._id}}
           </el-form-item>
@@ -26,7 +25,6 @@
           <el-form-item class="book-infor" label="图书简介：">
             <div class="bookmessage">{{books.message}}</div>
           </el-form-item>
-
         </el-form>
       </div>
     </div>
@@ -65,7 +63,7 @@
   @import '../../assets/scss/style';
 
   .bookinfor {
-    min-height: 720px;
+    min-height: 705px;
     border-radius: 20px;
   }
 

@@ -39,3 +39,4 @@
 * Vue-Awesome-Swiper 组件用于首页轮播图,书籍推荐界面,分类卡片应用 Github:[https://github.com/surmon-china/vue-awesome-swiper]
 * axios 进行异步请求操作
 * ElementUI 组件应用在label,消息提示
+* dayjs 对时间戳进行格式化

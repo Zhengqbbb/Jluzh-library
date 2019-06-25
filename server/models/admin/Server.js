@@ -8,7 +8,8 @@ const schema = new mongoose.Schema({
     type: String
   },
   body:{
-    type:String
+    type:String,
+    select: false
   }
 },{
   timestamps: true

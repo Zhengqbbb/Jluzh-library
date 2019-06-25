@@ -82,6 +82,10 @@
           this.active=3;
         }else if (this.$route.name == "bookinfor") {
           this.active=3;
+        }else if (this.$route.name == "new") {
+          this.active=2;
+        }else if (this.$route.name == "newinfo") {
+          this.active=2;
         }
       }
 

@@ -16,7 +16,6 @@
     data() {
       return {
         booknavs: [],
-       
       }
     },
     methods: {
