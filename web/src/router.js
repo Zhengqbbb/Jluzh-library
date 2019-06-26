@@ -4,8 +4,10 @@ import Home from './views/Home.vue'
 import Main from './views/Main.vue'
 import Book from './views/book/Book.vue'
 import BookInfor from './views/book/BookInfor.vue'
-import New from './views/new/New.vue'
-import NewInfor from './views/new/NewInfor.vue'
+import New from './views/ad/New.vue'
+import NewInfor from './views/ad/NewInfor.vue'
+import Server from './views/ad/Server.vue'
+import ServerInfor from './views/ad/ServerInfor.vue'
 
 Vue.use(Router)
 
@@ -21,6 +23,10 @@ export default new Router({
         {path: '/book/infor/:id',name:'bookinfor',component:BookInfor,props: true},
         {path: '/new',name:'new',component:New},
         {path: '/new/infor/:id',name:'newinfor',component:NewInfor,props: true},
+        {path: '/server',name:'server',component:Server,
+          children:[{path: '/server/infor/',name:'serverinfor',component:ServerInfor}]
+        },
+        
       ],
     },
     {

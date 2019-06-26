@@ -53,7 +53,7 @@
           },
           {
             title: '读者服务',
-            path: '/'
+            path: '/server'
           },
           {
             title: '新闻资讯',
@@ -86,6 +86,10 @@
           this.active=2;
         }else if (this.$route.name == "newinfor") {
           this.active=2;
+        }else if (this.$route.name == "server") {
+          this.active=1;
+        }else if (this.$route.name == "serverinfor") {
+          this.active=1;
         }
       }
 
@@ -103,66 +107,5 @@
 <style lang="scss">
   @import '../assets/scss/style';
 
-  .foot {
-    margin-top: 10px;
-    border-top: 1px solid $border-color;
-    width: 100%;
-    text-align: center;
-    font-size: 16px;
-    font-weight: 300;
-    position: relative;
-    bottom: 0;
-    .icon-github{
-      color: map-get($colors, 'primary');
-    }
-   
-  }
 
-  .admin {
-    display: inline;
-    color: map-get($colors, 'primary');
-    font-weight: 600;
-  }
-
-  .nav {
-    position: sticky;
-    top: 0;
-    z-index: 88;
-
-
-    .nav-item:hover {
-      background-color: #eeeeee;
-
-      a {
-        color: map-get($colors, 'primary');
-      }
-
-    }
-  }
-
-  .phone-ico {
-    padding-top: 11px;
-    cursor: default;
-  }
-
-  .nav-items-right {
-    .iconfont {
-      color: map-get($colors, 'primary')
-    }
-
-    .nav-item {
-      border-radius: 10%;
-
-      .iconfont {
-        margin-left: 0;
-        margin-right: 2px;
-      }
-    }
-  }
-
-  .wechat-img {
-    line-height: 0;
-    z-index: 99;
-    top: 6%;
-  }
 </style>
