@@ -20,34 +20,17 @@
   export default {
     data() {
       return {
-        items: [{
-            _id: '123',
-            name: '开馆时间',
-            ico: 'icon-time',
-          },
-          {
-            _id: '123',
-            name: '开馆时间',
-            ico: 'icon-time',
-          }, {
-            _id: '123',
-            name: '开馆时间',
-            ico: 'icon-time',
-          }, {
-            _id: '123',
-            name: '开馆时间',
-            ico: 'icon-time',
-          }, {
-            _id: '123',
-            name: '开馆时间',
-            ico: 'icon-time',
-          }, {
-            _id: '123',
-            name: '开馆时间',
-            ico: 'icon-time',
-          }
-        ]
+        items: []
       }
+    },
+    methods: {
+      async fetch(){
+        const res = await this.$http.get('/server')
+        this.items = res.data
+      }
+    },
+    created () {
+      this.fetch()
     }
   }
 </script>
@@ -56,14 +39,13 @@
   @import '../../assets/scss/style';
 
   .server-infor {
+    max-width: 70%;
     min-width: 70%;
   }
 
   .server-list {
     min-height: 750px;
     border-radius: 20px;
-
-
 
     .server-items {
       width: 20%;
@@ -85,8 +67,6 @@
       .iconfont {
         margin: 0;
       }
-
-
     }
   }
 </style>

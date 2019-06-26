@@ -24,7 +24,9 @@
           <i class="iconfont">&#xe614;</i>
           <div class="guide">服务指南</div>
           <div class="flex-1"></div>
-          <div><a href="#">更多 &gt;</a></div>
+          <div>
+            <router-link to="server">更多 &gt;</router-link>
+          </div>
         </div>
         <div class="nav-items d-if flex-wrap my-4 mx-3  ">
           <router-link to="/">

@@ -9,7 +9,8 @@
 
 html {
   font-size: 18px;
-
+  width:100vw;
+  overflow-x:hidden;
 }
 
 ul,
@@ -35,6 +36,7 @@ button {
   padding: 0;
   border: none;
 }
+
 
 body {
   margin: 0;
@@ -366,9 +368,9 @@ $type in $spacing-types {
   font-size: 16px;
   font-weight: 300;
 
-  /* position: relative;
-  bottom: 0;
-  height: 60px; */
+ /*  position: relative;
+  bottom: 0; */
+  max-height: 60px;
   .icon-github {
     color: map-get($colors, 'primary');
   }
@@ -426,7 +428,7 @@ $type in $spacing-types {
 //home
 
 .home {
-  min-height: 790px;
+  min-height: 770px;
 }
 
 .padgination-home {
@@ -551,6 +553,11 @@ $type in $spacing-types {
   }
   .ql-align-justify {
     text-align: justify;
+}
+.server-infor-body{
+  p{
+    white-space: pre-wrap;
+  }
 }
 .content-body{
   white-space: pre-wrap;

@@ -6,7 +6,7 @@ module.exports = app => {
   const BookCats = require('../../models/book/Category')
   const Article = require('../../models/admin/Article')
   const ArticleCats = require('../../models/admin/ArticleCategory')
-
+  const Server = require('../../models/admin/Server')
 
 
 
@@ -144,6 +144,16 @@ module.exports = app => {
     res.send(model)
   })
 
+  //服务列表接口
+  router.get('/server', async (req, res) => {
+    const model = await Server.find().lean()
+    res.send(model)
+  })
+//服务详情页接口
+router.get('/server/infor/:id', async (req, res) => {
+  const model = await Server.findById(req.params.id).select('+body').lean()
+  res.send(model)
+})
 
 
   app.use('/web/api', router)

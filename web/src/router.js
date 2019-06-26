@@ -24,7 +24,7 @@ export default new Router({
         {path: '/new',name:'new',component:New},
         {path: '/new/infor/:id',name:'newinfor',component:NewInfor,props: true},
         {path: '/server',name:'server',component:Server,
-          children:[{path: '/server/infor/',name:'serverinfor',component:ServerInfor}]
+          children:[{path: '/server/infor/:id',name:'serverinfor',component:ServerInfor,props: true}]
         },
         
       ],
