@@ -114,6 +114,8 @@ module.exports = app => {
           }
         }
       }
+      //聚合排序失难搞
+      /* ,{$sort:{newsList:-1,_id:-1}} */
     ])
 
     //添加虚拟字段“所有”
@@ -125,6 +127,7 @@ module.exports = app => {
     })
     //添加categoryName
     articlelist.map(cat => {
+      
       cat.newsList.map(news => {
         news.categoryName = (cat.name === '所有') ?
           news.categories[0].name : cat.name

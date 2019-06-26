@@ -30,7 +30,7 @@ module.exports = app => {
     }else if(req.Model.modelName === 'Article'){
       queryOptions.populate = 'categories'
     }
-    const items = await req.Model.find().sort({'_id':-1}).setOptions(queryOptions).limit(10)
+    const items = await req.Model.find().sort({'_id':-1}).setOptions(queryOptions).limit(20)
     res.send(items)
   })
 

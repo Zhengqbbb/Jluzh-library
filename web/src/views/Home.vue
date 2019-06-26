@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="home">
     <div class="swiper bg-white d-flex jc-center  w-common pt-s">
       <swiper :options="swiperOption">
         <!-- slides -->
@@ -208,6 +208,9 @@
 
 <style lang="scss">
   @import '../assets/scss/style';
+.home{
+  min-height: 790px;
+}
 
   .padgination-home {
     .swiper-pagination-bullet {
