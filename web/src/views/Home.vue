@@ -28,63 +28,14 @@
             <router-link to="server">更多 &gt;</router-link>
           </div>
         </div>
-        <div class="nav-items d-if flex-wrap my-4 mx-3  ">
-          <router-link to="/">
-            <div class="nav-item jc-center">
-              <i class="iconfont">&#xe60d;</i>
-              <div class="text">开馆时间</div>
-            </div>
-          </router-link>
-          <router-link to="/">
-            <div class="nav-item jc-center">
-              <i class="iconfont">&#xe606;</i>
-              <div class="text">借读须知</div>
-            </div>
-          </router-link>
-          <router-link to="/">
-            <div class="nav-item jc-center">
-              <i class="iconfont hot">&#xe67c;</i>
-              <div class="text">本馆概要</div>
-            </div>
-          </router-link>
-          <router-link to="/">
-            <div class="nav-item jc-center">
-              <i class="iconfont">&#xe610;</i>
-              <div class="text">好物推荐</div>
-            </div>
-          </router-link>
-          <router-link to="/">
-            <div class="nav-item jc-center">
-              <i class="iconfont ramain">&#xe700;</i>
-              <div class="text">借记登记</div>
-            </div>
-          </router-link>
-          <router-link to="/">
-            <div class="nav-item jc-center">
-              <i class="iconfont">&#xe61f;</i>
-              <div class="text">理赔须知</div>
-            </div>
-          </router-link>
-          <router-link to="/">
-            <div class="nav-item jc-center">
-              <i class="iconfont book">&#xe6f9;</i>
-              <div class="text">图书业务</div>
-            </div>
-          </router-link>
-          <router-link to="/">
-            <div class="nav-item jc-center">
-              <i class="iconfont">&#xe68b;</i>
-              <div class="text">馆内布局</div>
-            </div>
-          </router-link>
-          <router-link to="/">
-            <div class="nav-item jc-center">
-              <i class="iconfont">&#xe6d8;</i>
-              <div class="text">联系我们</div>
-            </div>
-          </router-link>
+        <div class="nav-items my-4 mx-3 d-flex flex-wrap jc-around">
+          <div class="server-items" v-for="(server , index) in servers" :key="index">
+            <router-link class="server-item mx-2 mb-3 p-1" :to="`/server/infor/${server._id}`">
+              <div class="iconfont" :class="server.ico"></div>
+              <div class="server-title fs-sm">{{server.name}}</div>
+            </router-link>
+          </div>
         </div>
-
       </div>
 
       <!-- 新闻通告 -->
@@ -151,6 +102,7 @@
         items: [],
         news: [],
         books: [],
+        servers:[],
 
         swiperOption1: {
           slidesPerView: 3,
@@ -198,11 +150,16 @@
       async fetchnews() {
         const res = await this.$http.get('home/new')
         this.news = res.data
+      },
+      async fetchservers() {
+        const res = await this.$http.get('home/server')
+        this.servers = res.data
       }
     },
     created() {
       this.fetchbooks()
       this.fetchnews()
+      this.fetchservers()
       this.fetchAd()
     }
   }
@@ -210,6 +167,112 @@
 
 <style lang="scss">
   @import '../assets/scss/style';
+.home {
+  min-height: 770px;
+}
 
+.padgination-home {
+  .swiper-pagination-bullet {
+    opacity: 1;
+    background: map-get($colors, 'white');
+
+    &.swiper-pagination-bullet-active {
+      background: map-get($colors, 'primary');
+    }
+  }
+}
+
+.swiper-book {
+  line-height: 25px;
+}
+
+.padgination-book {
+  position: relative;
+  top: 83%;
+
+  .swiper-pagination-bullet {
+    opacity: 1;
+    background: map-get($colors, 'grey-1');
+
+    &.swiper-pagination-bullet-active {
+      background: map-get($colors, 'primary');
+    }
+  }
+}
+
+.content {
+  border-left: 1px solid $border-color;
+  border-right: 1px solid $border-color;
+  margin-left: -1px;
+  margin-right: -1px;
+}
+
+
+.nav-icos {
+
+  .nav-item {
+    width: 95px;
+    margin: 5px;
+
+    .text {
+      width: 100%;
+      font-size: 14px;
+      text-align: center;
+    }
+  }
+}
+
+.items {
+  height: 350px;
+
+  a:hover {
+    color: map-get($colors, 'primary')
+  }
+  .server-items{
+    .server-item{
+      display: block;
+      text-align: center;
+      border-radius: 10%;
+    }
+  }
+  .server-item:hover {
+    background-color: map-get($colors, 'grey-1');
+  }
+  .iconfont{
+    &.icon-time,&.icon-ditu,&.icon-fuwu {
+      color: map-get($colors, 'primary')
+    }
+    
+  }
+
+}
+
+.top-nav {
+  .iconfont {
+    margin: 6px auto;
+    color: map-get($colors, 'drak-1')
+  }
+}
+
+.nav-items {
+  .title {
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+.swiper-book {
+  swiper-slide:hover {
+    background-color: map-get($colors, 'grey')
+  }
+}
+
+.book-nav-link:hover {
+  .book-name {
+    color: map-get($colors, 'primary')
+  }
+}
 
 </style>

@@ -19,7 +19,7 @@ module.exports = app => {
   })
   //首页书籍推荐接口
   router.get('/home/book', async (req, res) => {
-    const books = await Book.find().sort({
+    const books = await Book.find().limit(9).sort({
       '_id': -1
     }).lean()
     res.send(books)
@@ -30,6 +30,11 @@ module.exports = app => {
       '_id': -1
     }).populate('categories').limit(8).lean()
     res.send(news)
+  })
+  //首页服务接口
+  router.get('/home/server', async (req, res) => {
+    const servers = await Server.find().limit(9).lean()
+    res.send(servers)
   })
 
   //图书列表
