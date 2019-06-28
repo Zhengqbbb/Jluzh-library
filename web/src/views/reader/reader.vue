@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="reader w-common bd my-4 p-5">
-      <el-button class="layout" type="primary" icon="el-icon-close" round>退出登录</el-button>
+      <el-button class="layout" type="primary" icon="el-icon-close" round @click="layout()">退出登录</el-button>
       <template>
         <el-tabs v-model="activeName">
           <el-tab-pane name="first">
@@ -82,13 +82,13 @@
             <div class="reader-pass">
               <el-form label-width="180px" @submit.native.prevent="saveform('model')" :model="model" :rules="rules1"
                 ref="model">
-                <el-form-item label="读者新密码:" prop="newpassword">
-                  <el-col :span="4">
+                <el-form-item label="新密码:" prop="newpassword">
+                  <el-col :span="6">
                     <el-input v-model="model.newpassword" clearable autocomplete="off"></el-input>
                   </el-col>
                 </el-form-item>
                 <el-form-item label="重复输入密码:" prop="password">
-                  <el-col :span="4">
+                  <el-col :span="6">
                     <el-input v-model="model.password" clearable autocomplete="off"></el-input>
                   </el-col>
                 </el-form-item>
@@ -106,10 +106,8 @@
 </template>
 
 <script>
+  import jwt_decode from 'jwt-decode'
   export default {
-    prop: {
-      id: {}
-    },
     data() {
       const vaildatePass = (rule, value, callback) => {
         if (value === '') {
@@ -133,23 +131,10 @@
       return {
         activeName: 'first',
         seen: false,
-        reader: {
-          username: '123213123132313231312313',
-          name: '123213123132313231312313',
-          phone: '123213132313231312313',
-          email: '123213123132313231312313',
-          lends: [{
-            _id: '12312312313',
-            name: 'etst',
-          }, {
-            _id: '12312312313',
-            name: 'etst',
-          }, {
-            _id: '12312312313',
-            name: 'etst',
-          }]
-        },
+        reader: {},
+        a:[],
         model: {},
+        id: '',
         rules1: {
           newpassword: [{
             validator: vaildatePass,
@@ -186,10 +171,9 @@
       }
     },
     methods: {
-      isSeen() {
-        if (this.reader.lends != '') {
-          this.seen = true;
-        }
+      layout() {
+        localStorage.clear()
+        this.$router.push('/')
       },
       saveforminfor(reader) {
         this.$refs[reader].validate(valid => {
@@ -219,24 +203,39 @@
       },
 
       async save() {
-        let res = this.$http.put(`/reader/readers/${this.id}`, this.reader)
-        this.$router.push(`/reader/${this.id}`)
+        let res = this.$http.put(`/reader/${this.id.id}`, this.reader)
         this.$message({
           type: 'success',
           message: '修改成功'
         })
+        this.activeName= 'first'
       },
       async save1() {
-        let res = this.$http.put(`/reader/readers/${this.id}`, this.model)
-        this.$router.push(`/reader/${this.id}`)
+        let res = this.$http.put(`/reader/${this.id.id}`, this.model)
         this.$message({
           type: 'success',
           message: '修改成功'
         })
+        this.activeName= 'first'
+      },
+      async fetchReader() {
+        if (localStorage.token) {
+          const userid = jwt_decode(localStorage.token)
+          this.id = userid
+          const res = await this.$http.get(`/reader/${this.id.id}`)
+          this.reader = res.data
+          if(this.reader.lends.length != 0){
+           this.seen = true 
+          }
+          
+        } else {
+          this.$router.push('/login')
+        }
+
       }
     },
     created() {
-      this.isSeen()
+      this.fetchReader()
     },
 
   }

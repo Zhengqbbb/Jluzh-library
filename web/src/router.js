@@ -8,8 +8,8 @@ import New from './views/ad/New.vue'
 import NewInfor from './views/ad/NewInfor.vue'
 import Server from './views/ad/Server.vue'
 import ServerInfor from './views/ad/ServerInfor.vue'
-import Login from './views/reader/login.vue'
-import Reader from './views/reader/reader.vue'
+import Login from './views/reader/Login.vue'
+import Reader from './views/reader/Reader.vue'
 
 Vue.use(Router)
 
@@ -29,7 +29,7 @@ export default new Router({
           children:[{path: '/server/infor/:id',name:'serverinfor',component:ServerInfor,props: true}]
         },
         {path: '/login',name:'login',component:Login},
-        {path: '/reader/:id',name:'reader',component:Reader,props: true},
+        {path: '/reader',name:'reader',component:Reader},
       ],
     },
     {

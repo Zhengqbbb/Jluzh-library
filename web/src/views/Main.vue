@@ -21,7 +21,7 @@
           </div>
         </div>
         <div class="nav-item px-1 pt-2 mx-2">
-          <router-link class="nav-link" to="/reader/5d15bc2bfff70539384b7327"> <i class="iconfont">&#xe615;</i>我的图书馆</router-link>
+          <router-link class="nav-link" to="/reader"> <i class="iconfont">&#xe615;</i>我的图书馆</router-link>
         </div>
         <div class="nav-item px-1 pt-2 mx-2">
           <router-link class="nav-link" to="/login"> <i class="iconfont">&#xe63d;</i>馆内搜索</router-link>
@@ -75,7 +75,11 @@
       setActive() {
         if (this.$route.name == "home") {
           this.active=0;
-        } else if (this.$route.name == "book") {
+        } else if (this.$route.name == "reader") {
+          this.active=0;
+        }else if (this.$route.name == "login") {
+          this.active=0;
+        }else if (this.$route.name == "book") {
           this.active=3;
         }else if (this.$route.name == "bookinfor") {
           this.active=3;

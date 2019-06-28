@@ -1,5 +1,9 @@
 module.exports = app => {
-  const router = require('express').Router()
+  const router = require('express').Router({
+    mergeParams: true
+  })
+  const jwt = require('jsonwebtoken')
+  const assert = require('http-assert')
   const mongoose = require('mongoose')
   const Ad = require('../../models/admin/Ad')
   const Book = require('../../models/book/Book')
@@ -7,7 +11,7 @@ module.exports = app => {
   const Article = require('../../models/admin/Article')
   const ArticleCats = require('../../models/admin/ArticleCategory')
   const Server = require('../../models/admin/Server')
-
+  const Reader = require('../../models/reader/Reader')
 
 
   //首页轮播图数据接口
@@ -132,7 +136,7 @@ module.exports = app => {
     })
     //添加categoryName
     articlelist.map(cat => {
-      
+
       cat.newsList.map(news => {
         news.categoryName = (cat.name === '所有') ?
           news.categories[0].name : cat.name
@@ -154,12 +158,61 @@ module.exports = app => {
     const model = await Server.find().lean()
     res.send(model)
   })
-//服务详情页接口
-router.get('/server/infor/:id', async (req, res) => {
-  const model = await Server.findById(req.params.id).select('+body').lean()
-  res.send(model)
-})
+  //服务详情页接口
+  router.get('/server/infor/:id', async (req, res) => {
+    const model = await Server.findById(req.params.id).select('+body').lean()
+    res.send(model)
+  })
 
+  //读者详情页接口
+  router.get('/reader/:id', async (req, res) => {
+    const model = await Reader.findById(req.params.id).select('+body').lean()
+    res.send(model)
+  })
+  //读者修改接口
+  router.put('/reader/:id', async (req, res) => {
+    const model = await Reader.findByIdAndUpdate(req.params.id, req.body)
+    res.send(model)
+  })
+
+    //登录接口
+    router.post('/login', async (req, res) => {
+      const {
+        username,
+        password
+      } = req.body
+      const user = await Reader.findOne({
+        username: username
+      }).select('+password')
+      /* 原生处理，现在用http-assert处理 
+        下载:npm i http-assert */
+        if (!user) {
+        return res.status(422).send({
+          message: '账户不存在'
+        })
+      }
+      /* assert(user, 422, '账户不存在') */
+      const isValid = require('bcrypt').compareSync(password, user.password)
+     /*  assert(isValid, 422, '密码错误') */
+     if (!isValid) {
+      return res.status(422).send({
+        message: '密码错误'
+      })
+    }
+  
+  
+      /**
+       * 安装token: npm i jsonwebtoken
+       */
+      const token = jwt.sign({
+        id: user.id,
+      }, app.get('secret'))
+      res.send({
+        token
+      })
+    })
+
+  
 
   app.use('/web/api', router)
 }

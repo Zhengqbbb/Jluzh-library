@@ -1,6 +1,7 @@
 <template>
   <div class="login-container">
     <el-card header="管理员登录" class="login-card">
+      <div class="tip">(用户名：qb 密码：qb)</div>
       <el-form @submit.native.prevent="saveform('model')" label-width="100px" :model="model" :rules="rules" ref="model">
         <el-form-item label="用户名:" prop="username">
           <el-col :span="16">
@@ -85,10 +86,24 @@
 </script>
 
 
+
 <style>
+.tip{
+  margin-bottom: 5px;
+  text-align: center;
+  font-size: 14px;
+}
   .login-card {
     width: 25rem;
     margin: 10rem auto;
+  }
 
+  .el-card__header {
+    text-align: center;
+  }
+
+  .el-form-item.is-required:not(.is-no-asterisk) .el-form-item__label-wrap>.el-form-item__label:before,
+  .el-form-item.is-required:not(.is-no-asterisk)>.el-form-item__label:before {
+    content: ''
   }
 </style>

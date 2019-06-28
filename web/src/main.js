@@ -20,17 +20,29 @@ Vue.component('qb-list',CategoryCard)
 import BookCard from './components/BookCard.vue'
 Vue.component('qb-book',BookCard)
 
-
-
-
 //axios
 import axios from 'axios'
-
 import './plugins/element.js'
-Vue.prototype.$http = axios.create({
+const http = axios.create({
   baseURL: 'http://localhost:3000/web/api'
 })
 
+
+//全局响应捕获错误,拦截器
+http.interceptors.response.use(res => {
+  return res
+}, err => {
+  if (err.response.data.message) {
+    Vue.prototype.$message({
+      type: 'error',
+      message: err.response.data.message
+    })
+  }
+  return Promise.reject(err)
+})
+
+
+Vue.prototype.$http = http
 new Vue({
   router,
   render: h => h(App)
