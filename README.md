@@ -42,4 +42,4 @@
 * dayjs 对时间戳进行格式化
 
 ---
-学习途径：B站UP主：<a target="_blank" href="https://www.bilibili.com/video/av53994523">全栈之巅</a> 
+学习途径：B站UP主：<a target="_blank" href="https://space.bilibili.com/341919508?spm_id_from=333.788.b_765f7570696e666f.1">全栈之巅</a> 
