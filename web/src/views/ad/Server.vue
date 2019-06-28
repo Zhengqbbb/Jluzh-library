@@ -25,13 +25,13 @@
     },
     methods: {
       async fetch() {
-        if (!localStorage.servers) {
+        if (!sessionStorage.servers) {
           const res = await this.$http.get('/server')
           const item = JSON.stringify(res.data)
           /* console.log(item) */
-          localStorage.servers = item
+          sessionStorage.servers = item
         }
-        this.items = JSON.parse(localStorage.servers)
+        this.items = JSON.parse(sessionStorage.servers)
       }
     },
     created() {
