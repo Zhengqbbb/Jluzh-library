@@ -65,6 +65,7 @@
   .bookinfor {
     min-height: 705px;
     border-radius: 20px;
+    box-shadow: 0 0 10px map-get($colors, 'grey');
   }
 
   .book-infors {

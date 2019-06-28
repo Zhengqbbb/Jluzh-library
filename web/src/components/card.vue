@@ -1,4 +1,5 @@
-<template>
+//初体验
+/* <template>
   <div class="card w-1">
     <div class="card-header bg-grey p-2 m-2 d-flex ai-center">
       <i class="iconfont">{{icon}}</i>
@@ -23,7 +24,7 @@
 
 <style>
 
-</style>
+</style> */
 
 /*
 <div class="nav d-flex jc-between px-3">

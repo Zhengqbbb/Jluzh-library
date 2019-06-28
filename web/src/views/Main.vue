@@ -10,10 +10,7 @@
             <router-link class="nav-link " @click="active = i" :to="nav.path">{{nav.title}}</router-link>
           </div>
         </div>
-
       </div>
-
-
 
       <div class="nav-items-right d-flex fw-md fs-xs lh-sm lt-lg flex-wrap">
         <div class=" phone-ico mx-3" @mouseenter="enter" @mouseleave="leave"> <i class="iconfont pt-3">&#xe600;</i>公众号
@@ -24,10 +21,10 @@
           </div>
         </div>
         <div class="nav-item px-1 pt-2 mx-2">
-          <router-link class="nav-link" to="/"> <i class="iconfont">&#xe615;</i>我的图书馆</router-link>
+          <router-link class="nav-link" to="/reader/5d15bc2bfff70539384b7327"> <i class="iconfont">&#xe615;</i>我的图书馆</router-link>
         </div>
         <div class="nav-item px-1 pt-2 mx-2">
-          <router-link class="nav-link" to="/"> <i class="iconfont">&#xe63d;</i>馆内搜索</router-link>
+          <router-link class="nav-link" to="/login"> <i class="iconfont">&#xe63d;</i>馆内搜索</router-link>
         </div>
       </div>
     </div>

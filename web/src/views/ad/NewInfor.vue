@@ -47,9 +47,9 @@
   @import '../../assets/scss/style';
 
   .new-infor {
-
     min-height: 750px;
     border-radius: 20px;
+    box-shadow: 0 0 10px map-get($colors, 'grey');
 
     .title {
       border-bottom: 1px solid $border-color;

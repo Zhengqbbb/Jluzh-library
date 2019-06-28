@@ -26,7 +26,8 @@ const schema = new mongoose.Schema({
   },
   lends: [{
     type: mongoose.SchemaTypes.ObjectId,
-    ref: 'Book'
+    ref: 'Book',
+    
   }]
 
 }, {

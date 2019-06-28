@@ -46,7 +46,7 @@
         } else {
           callback();
         }
-      }
+      };
       return {
         model: {
           user: {}

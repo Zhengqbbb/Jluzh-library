@@ -1,4 +1,6 @@
-<template>
+//初体验
+
+/* <template>
   <div class="nav-news bd  w-1 bg-white px-2">
     <div class="top-nav  d-flex">
       <i class="iconfont">&#xe624;</i>
@@ -23,4 +25,4 @@
 
 <style>
 
-</style>
+</style> */

@@ -49,9 +49,7 @@
     },
     data() {
       return {
-        model: {
-          user: {}
-        },
+        model: {},
         rules: {
           name: [{
               required: true,

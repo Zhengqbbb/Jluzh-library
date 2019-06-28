@@ -12,15 +12,14 @@ import router from './router'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
 Vue.use(VueAwesomeSwiper, /* { default global options } */)
-//初体验卡片组件
-import Card from './components/card.vue'
-Vue.component('m-card',Card)
-//自定义封装分类卡片组件
+
+//自封装分类卡片组件
 import CategoryCard from './components/CategoryCard.vue'
 Vue.component('qb-list',CategoryCard)
-//自定义封装图书卡片组件
+//自封装图书卡片组件
 import BookCard from './components/BookCard.vue'
 Vue.component('qb-book',BookCard)
+
 
 
 
