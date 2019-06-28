@@ -3,7 +3,14 @@ const mongoose = require('mongoose')
 const schema = new mongoose.Schema({
   username: {
     type: String,
-    unique: true,
+    unique:true
+  },
+  password: {
+    type: String,
+    select: false,
+    set(val) {
+      return require('bcrypt').hashSync(val, 10)
+    }
   },
   name: {
     type: String
@@ -17,13 +24,10 @@ const schema = new mongoose.Schema({
   card: {
     type: String
   },
-  password: {
-    type: String,
-    select: false,
-    set(val) {
-      return require('bcrypt').hashSync(val, 10)
-    }
-  }
+  lends: [{
+    type: mongoose.SchemaTypes.ObjectId,
+    ref: 'Book'
+  }]
 
 }, {
   timestamps: true
