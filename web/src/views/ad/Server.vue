@@ -24,12 +24,17 @@
       }
     },
     methods: {
-      async fetch(){
-        const res = await this.$http.get('/server')
-        this.items = res.data
+      async fetch() {
+        if (!localStorage.servers) {
+          const res = await this.$http.get('/server')
+          const item = JSON.stringify(res.data)
+          /* console.log(item) */
+          localStorage.servers = item
+        }
+        this.items = JSON.parse(localStorage.servers)
       }
     },
-    created () {
+    created() {
       this.fetch()
     }
   }
@@ -46,6 +51,7 @@
   .server-list {
     min-height: 750px;
     border-radius: 20px;
+    box-shadow: 0 0 10px map-get($colors, 'grey');
 
     .server-items {
       width: 20%;
