@@ -3,27 +3,30 @@
     <div>
       <h1>读者列表</h1>
       
-
-     
-
-
-
     </div>
 
     <el-table :data="items">
-
       <el-table-column prop="_id" label="读者编号" width="240"></el-table-column>
       <el-table-column prop="username" label="用户名"></el-table-column>
-     
+      <el-table-column prop="name" label="姓名"></el-table-column>
+      <el-table-column prop="phone" label="手机"></el-table-column>
+      <el-table-column prop="card" label="身份证"></el-table-column>
+      <el-table-column prop="email" label="邮箱"></el-table-column>
 
 
-
-      <el-table-column fixed="right" label="操作" width="300">
+      <el-table-column fixed="right" label="操作" width="500">
         <template slot-scope="scope">
-          
-
+          <el-button type="primary" size="small" @click="$router.push(`/reader/edit/${scope.row._id}`)"
+            icon="el-icon-notebook-1">借书
+          </el-button>
+          <el-button type="primary" size="small" @click="$router.push(`/reader/edit/${scope.row._id}`)"
+            icon="el-icon-collection">还书
+          </el-button>
           <el-button type="success" size="small" @click="$router.push(`/reader/edit/${scope.row._id}`)"
             icon="el-icon-edit">修改
+          </el-button>
+          <el-button type="warning" size="small" @click="$router.push(`/reader/password/${scope.row._id}`)"
+            icon="el-icon-lock">修改密码
           </el-button>
           <el-button type="danger" size="small" @click="remove(scope.row)" icon="el-icon-delete">删除</el-button>
         </template>
@@ -49,7 +52,7 @@
     methods: {
       
       async fetch() {
-        const res = await this.$http.get('reader/reader_users')
+        const res = await this.$http.get('reader/readers')
         this.items = res.data
       },
       async remove(row) {
@@ -59,7 +62,7 @@
           type: 'warning'
         }).then(async () => {
           //请求接口
-          const res = await this.$http.delete(`reader/reader_users/${row._id}`)
+          const res = await this.$http.delete(`reader/readers/${row._id}`)
 
           this.$message({
             type: 'success',

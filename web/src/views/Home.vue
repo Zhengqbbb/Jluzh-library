@@ -51,8 +51,8 @@
         <div class="nav-items" v-for="(item,i) in news" :key="i">
           <router-link tag="a" target="_blank" :to="`/new/infor/${item._id}`">
             <div class="d-flex flex-wrap mt-1 lh-xs fs-sm">
-              <span class="">[{{item.categories[0].name}}]</span>
-              <span>|</span>
+              <span class="mr-1">[{{item.categories[0].name}}]</span>
+              <span class="mr-1">|</span>
               <div class="title flex-1">{{item.name}}</div>
               <span>{{item.createdAt | date}}</span>
             </div>
@@ -157,10 +157,11 @@
       }
     },
     created() {
+      this.fetchAd()
       this.fetchbooks()
       this.fetchnews()
       this.fetchservers()
-      this.fetchAd()
+      
     }
   }
 </script>
@@ -223,7 +224,7 @@
 }
 
 .items {
-  height: 350px;
+  min-height: 350px;
 
   a:hover {
     color: map-get($colors, 'primary')
@@ -242,9 +243,10 @@
     &.icon-time,&.icon-ditu,&.icon-fuwu {
       color: map-get($colors, 'primary')
     }
-    
+    &.icon-fuwu{
+      width: 64px ;
+    }
   }
-
 }
 
 .top-nav {
@@ -255,6 +257,7 @@
 }
 
 .nav-items {
+  max-height: 100%;
   .title {
     display: inline-block;
     overflow: hidden;

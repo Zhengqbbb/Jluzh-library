@@ -10,6 +10,7 @@ import BookEdit from './views/book/BookEdit.vue'
 import BookList from './views/book/BookList.vue'
 import BookAdd from './views/book/BookAdd.vue'
 //读者
+import ReaderAdd from './views/reader/ReaderAdd.vue'
 import ReaderEdit from './views/reader/ReaderEdit.vue'
 import ReaderList from './views/reader/ReaderList.vue'
 import ReaderPass from './views/reader/ReaderPassword.vue'
@@ -55,10 +56,10 @@ const router = new Router({
         {path: '/book/list/:bookname',component: BookList,props: true},
         {path: '/book/add/:id',component: BookAdd,props: true},
         
-        {path: '/reader/create',component: ReaderEdit},
+        {path: '/reader/create',component: ReaderAdd},
         {path: '/reader/edit/:id',component: ReaderEdit,props: true},
         {path: '/reader/list',component: ReaderList},
-        {path: '/reader/password',component: ReaderPass},
+        {path: '/reader/password/:id',component: ReaderPass,props: true},
 
         {path: '/ads/create',component: AdEdit},
         {path: '/ads/edit/:id',component: AdEdit,props: true},

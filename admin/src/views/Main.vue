@@ -34,13 +34,7 @@
             <template slot="title">读者信息管理</template>
             <el-menu-item index="/reader/create"><i class="el-icon-circle-plus"></i>新增读者<i
                 class="el-icon-arrow-right"></i> </el-menu-item>
-            <el-menu-item index="/reader/list"><i class="el-icon-user-solid"></i>读者列表<i class="el-icon-arrow-right"></i>
-            </el-menu-item>
-          </el-submenu>
-
-          <el-submenu index="2-2">
-            <template slot="title">安全管理</template>
-            <el-menu-item index="/reader/password"><i class="el-icon-lock"></i>修改密码<i class="el-icon-arrow-right"></i>
+            <el-menu-item index="/reader/list"><i class="el-icon-user-solid"></i>读者操作<i class="el-icon-arrow-right"></i>
             </el-menu-item>
           </el-submenu>
         </el-submenu>

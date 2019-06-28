@@ -1,21 +1,52 @@
 <template>
   <div class="about">
-    <h1>修改密码</h1>
+    <h1>新建读者账户</h1>
     <el-form label-width="120px" @submit.native.prevent="saveform('model')" :model="model" :rules="rules" ref="model">
 
-      <el-form-item label="输入新密码:" prop="newpassword">
+      <el-form-item label="读者用户名:" prop="username">
         <el-col :span="4">
-          <el-input type="password" v-model="model.newpassword" clearable autocomplete="off"></el-input>
+          <el-input v-model="model.username" clearable></el-input>
         </el-col>
       </el-form-item>
-      <el-form-item label="重新输入密码:" prop="password">
+
+      <el-form-item label="读者密码:" prop="newpassword">
         <el-col :span="4">
-          <el-input type="password" v-model="model.password" clearable autocomplete="off"></el-input>
+          <el-input v-model="model.newpassword" clearable autocomplete="off"></el-input>
+        </el-col>
+      </el-form-item>
+
+      <el-form-item label="重复输入密码:" prop="password">
+        <el-col :span="4">
+          <el-input v-model="model.password" clearable autocomplete="off"></el-input>
+        </el-col>
+      </el-form-item>
+
+      <el-form-item label="读者姓名:">
+        <el-col :span="4">
+          <el-input v-model="model.name" clearable></el-input>
+        </el-col>
+      </el-form-item>
+
+      <el-form-item label="读者邮箱:">
+        <el-col :span="4">
+          <el-input v-model="model.email" clearable></el-input>
+        </el-col>
+      </el-form-item>
+
+      <el-form-item label="读者手机:">
+        <el-col :span="4">
+          <el-input v-model="model.phone" clearable></el-input>
+        </el-col>
+      </el-form-item>
+
+      <el-form-item label="身份证号码:">
+        <el-col :span="4">
+          <el-input v-model="model.card" clearable></el-input>
         </el-col>
       </el-form-item>
 
       <el-form-item>
-        <el-button type="primary" native-type="submit">修改</el-button>
+        <el-button type="primary" native-type="submit">保存</el-button>
       </el-form-item>
     </el-form>
   </div>
@@ -51,13 +82,24 @@
       return {
         model: {},
         rules: {
-
+          name: [{
+              required: true,
+              message: '请输入读者名称',
+              trigger: 'blur'
+            },
+            {
+              min: 1,
+              max: 5,
+              message: '长度在 1 到 5 个字符',
+              trigger: 'blur'
+            }
+          ],
           newpassword: [{
             validator: vaildatePass,
             trigger: 'blur'
           }, {
             required: true,
-            message: '请输入密码',
+            message: '请输入新密码',
             trigger: 'blur'
           }],
           password: [{
@@ -79,7 +121,7 @@
           } else {
             this.$message({
               type: 'error',
-              message: '失败'
+              message: '请再审核一下'
             })
             return false
           }
@@ -87,16 +129,16 @@
       },
 
       async save() {
-        const res = this.$http.put(`/admin/admin_users/${this.id}`, this.model)
-        await this.$http.get('admin/admin_users')
-        this.$router.push('/admin_users/list')
+        let res = this.$http.post('reader/readers', this.model)
+        res = await this.$http.get('reader/readers')
+        this.$router.push('/reader/list')
         this.$message({
           type: 'success',
-          message: '修改成功'
+          message: '保存成功'
         })
       },
 
+    },
 
-    }
   }
 </script>
