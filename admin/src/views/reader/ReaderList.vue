@@ -7,7 +7,7 @@
 
     <el-table :data="items">
       <el-table-column prop="_id" label="读者编号" width="240"></el-table-column>
-      <el-table-column prop="username" label="用户名"></el-table-column>
+      <el-table-column prop="username" label="学号"></el-table-column>
       <el-table-column prop="name" label="姓名"></el-table-column>
       <el-table-column prop="phone" label="手机"></el-table-column>
       <el-table-column prop="card" label="身份证"></el-table-column>
@@ -16,10 +16,10 @@
 
       <el-table-column fixed="right" label="操作" width="500">
         <template slot-scope="scope">
-          <el-button type="primary" size="small" @click="$router.push(`/reader/edit/${scope.row._id}`)"
+          <el-button type="primary" size="small" @click="$router.push(`/reader/lend/${scope.row._id}`)"
             icon="el-icon-notebook-1">借书
           </el-button>
-          <el-button type="primary" size="small" @click="$router.push(`/reader/edit/${scope.row._id}`)"
+          <el-button type="primary" size="small" @click="$router.push(`/reader/return/${scope.row._id}`)"
             icon="el-icon-collection">还书
           </el-button>
           <el-button type="success" size="small" @click="$router.push(`/reader/edit/${scope.row._id}`)"

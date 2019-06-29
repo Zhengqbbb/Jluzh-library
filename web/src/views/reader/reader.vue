@@ -11,7 +11,7 @@
               <div class="infor">
                 <div class="fs-xl text-center mb-4">基本信息</div>
                 <el-form ref="form" label-width="150px">
-                  <el-form-item class="book-infor" label="用户名：">
+                  <el-form-item class="book-infor" label="学号：">
                     {{reader.username}}
                   </el-form-item>
                   <el-form-item class="book-infor" label="姓名：">
@@ -28,7 +28,7 @@
               <div class="booked" v-show="seen">
                 <div class="fs-xl text-center text-primary">在借书籍</div>
                 <div class="reader-book bd my-3 py-2" v-for="(bookitem,index) in reader.lends" :key="index">
-                  <div class="reader-book-id">图书ID：{{bookitem._id}}</div>
+                  <div class="reader-book-id fs-sm text-grey">图书ID：{{bookitem._id}}</div>
                   <div class="reader-book-name">图书名：{{bookitem.name}}</div>
                 </div>
               </div>
@@ -43,12 +43,6 @@
             <div class="reder-edit">
               <el-form class="reder-edit-form" label-width="120px" @submit.native.prevent="saveforminfor('reader')"
                 :model="reader" :rules="rules" ref="reader">
-
-                <el-form-item label="用户名:" prop="username">
-                  <el-col :span="8">
-                    <el-input v-model="reader.username" clearable></el-input>
-                  </el-col>
-                </el-form-item>
 
                 <el-form-item label="姓名:" prop="name">
                   <el-col :span="8">

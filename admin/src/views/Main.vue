@@ -31,7 +31,7 @@
             <i class="el-icon-user"></i>读者管理
           </template>
           <el-submenu index="2-1">
-            <template slot="title">读者信息管理</template>
+            <template slot="title">读者操作</template>
             <el-menu-item index="/reader/create"><i class="el-icon-circle-plus"></i>新增读者<i
                 class="el-icon-arrow-right"></i> </el-menu-item>
             <el-menu-item index="/reader/list"><i class="el-icon-user-solid"></i>读者操作<i class="el-icon-arrow-right"></i>

@@ -2,12 +2,12 @@
   <div>
     <div class="login w-common">
       <el-card header="读者登录" class="login-card">
-        <div class="text-center fs-xs">(用户名：qb，密码：qb)</div>
+        <div class="text-center fs-xs">(用户名：04162122，密码：qb)</div>
         <el-form @submit.native.prevent="saveform('model')" label-width="100px" :model="model" :rules="rules"
           ref="model">
-          <el-form-item label="用户名:" prop="username">
+          <el-form-item label="学号:" prop="username">
             <el-col :span="20">
-              <el-input v-model="model.username" clearable placeholder="请输入用户名"></el-input>
+              <el-input v-model="model.username" clearable placeholder="请输入学号"></el-input>
             </el-col>
           </el-form-item>
 
@@ -36,13 +36,13 @@
         rules: {
           username: [{
               required: true,
-              message: '请输入用户名',
+              message: '请输入学号',
               trigger: 'blur'
             },
             {
               min: 1,
               max: 16,
-              message: '用户名小于16位数',
+              message: '学号小于16位数',
               trigger: 'blur'
             },
           ],

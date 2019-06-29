@@ -166,7 +166,7 @@ module.exports = app => {
 
   //读者详情页接口
   router.get('/reader/:id', async (req, res) => {
-    const model = await Reader.findById(req.params.id).select('+body').lean()
+    const model = await Reader.findById(req.params.id).populate('lends').lean()
     res.send(model)
   })
   //读者修改接口

@@ -3,7 +3,7 @@
     <h1>新建读者账户</h1>
     <el-form label-width="120px" @submit.native.prevent="saveform('model')" :model="model" :rules="rules" ref="model">
 
-      <el-form-item label="读者用户名:" prop="username">
+      <el-form-item label="读者学号:" prop="username">
         <el-col :span="4">
           <el-input v-model="model.username" clearable></el-input>
         </el-col>

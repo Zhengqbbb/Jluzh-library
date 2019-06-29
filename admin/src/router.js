@@ -14,6 +14,8 @@ import ReaderAdd from './views/reader/ReaderAdd.vue'
 import ReaderEdit from './views/reader/ReaderEdit.vue'
 import ReaderList from './views/reader/ReaderList.vue'
 import ReaderPass from './views/reader/ReaderPassword.vue'
+import ReaderLend from './views/reader/ReaderLend.vue'
+import ReaderReturn from './views/reader/ReaderReturn.vue'
 //运营
 import AdEdit from './views/ads/AdEdit'
 import AdList from './views/ads/AdList'
@@ -60,6 +62,8 @@ const router = new Router({
         {path: '/reader/edit/:id',component: ReaderEdit,props: true},
         {path: '/reader/list',component: ReaderList},
         {path: '/reader/password/:id',component: ReaderPass,props: true},
+        {path: '/reader/lend/:id',component: ReaderLend,props: true},
+        {path: '/reader/return/:id',component: ReaderReturn,props: true},
 
         {path: '/ads/create',component: AdEdit},
         {path: '/ads/edit/:id',component: AdEdit,props: true},

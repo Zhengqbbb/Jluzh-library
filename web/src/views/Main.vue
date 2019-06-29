@@ -33,7 +33,7 @@
 
     <footer class="foot bg-white pt-1 ">
       jluzh-library &copy; by <div class="admin">Qbenben</div>
-      <a target="_blank" href="https://github.com/Zhengqbbb/jluzh-library"><div class="iconfont icon-github"></div></a>
+      <a target="_blank" href="https://github.com/Zhengqbbb/Jluzh-library"><div class="iconfont icon-github"></div></a>
     </footer>
 
 

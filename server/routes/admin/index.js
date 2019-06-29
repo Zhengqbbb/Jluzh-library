@@ -36,7 +36,11 @@ module.exports = app => {
 
   //获取详情接口
   router.get('/:id', async (req, res) => {
-    const model = await req.Model.findById(req.params.id).select('+message').select('+body')
+    const queryOptions = {}
+    if(req.Model.modelName === 'Reader'){
+      queryOptions.populate = 'lends'
+    }
+    const model = await req.Model.findById(req.params.id).setOptions(queryOptions).select('+message').select('+body')
     res.send(model)
   })
   //修改接口
