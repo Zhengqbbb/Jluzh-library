@@ -167,7 +167,7 @@
     methods: {
       layout() {
         localStorage.clear()
-        this.$router.push('/')
+        this.$router.push('/login')
       },
       saveforminfor(reader) {
         this.$refs[reader].validate(valid => {

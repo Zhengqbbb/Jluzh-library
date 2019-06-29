@@ -44,7 +44,9 @@
       }
     },
     methods: {
-
+      /**
+       * 图书借阅
+       */
       saveform(model) {
         if (this.model.length == 0) {
           return this.$message({
@@ -53,15 +55,15 @@
           })
         }
         this.model.forEach(returnbook => {
-          const i = this.usermodel.lends.findIndex((item) => item._id == returnbook);
-          this.usermodel.lends.splice(0, 1);
           this.books.forEach(bookitem => {
             if (returnbook == bookitem._id) {
-              console.log(bookitem.remain)
               bookitem.remain++;
               const res1 = this.$http.put(`book/books/${bookitem._id}`, bookitem)
             }
           });
+          const i = this.usermodel.lends.findIndex((item) => item._id == returnbook);
+          this.usermodel.lends.splice(i, 1);
+          
         });
         
         this.save()
