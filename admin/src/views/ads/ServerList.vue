@@ -2,14 +2,11 @@
   <div class="about">
     <h1>服务列表</h1>
     <el-table :data="items">
-
       <el-table-column prop="_id" label="ID"></el-table-column>
       <el-table-column prop="name" label="服务名"></el-table-column>
       <el-table-column prop="createdAt" label="创建时间">
         <template slot-scope="scope">{{ scope.row.createdAt | data }}</template>
       </el-table-column>
-
-
       <el-table-column fixed="right" label="操作" width="180">
         <template slot-scope="scope">
           <el-button type="success" size="small" @click="$router.push(`/server/edit/${scope.row._id}`)"
@@ -18,7 +15,6 @@
           <el-button type="danger" size="small" @click="remove(scope.row)" icon="el-icon-delete">删除</el-button>
         </template>
       </el-table-column>
-
     </el-table>
   </div>
 </template>
@@ -49,7 +45,6 @@
         }).then(async () => {
           //请求接口
           const res = await this.$http.delete(`server/servers/${row._id}`)
-
           this.$message({
             type: 'success',
             message: '删除成功!'

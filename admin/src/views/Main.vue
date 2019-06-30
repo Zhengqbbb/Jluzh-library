@@ -3,7 +3,6 @@
 
     <el-aside width="200px">
       <el-menu router style="height: 100vh;" :default-active="$route.path" unique-opened>
-
         <el-submenu index="1">
           <template slot="title">
             <i class="el-icon-notebook-2"></i>图书管理
@@ -15,7 +14,6 @@
             <el-menu-item index="/book/list"><i class="el-icon-document-copy"></i>图书列表<i
                 class="el-icon-arrow-right"></i></el-menu-item>
           </el-submenu>
-
           <el-submenu index="1-2">
             <template slot="title">分类管理</template>
             <el-menu-item index="/book/categories/create"><i class="el-icon-circle-plus"></i>新建分类<i
@@ -23,9 +21,7 @@
             <el-menu-item index="/book/categories/list"><i class="el-icon-document-copy"></i>分类列表<i
                 class="el-icon-arrow-right"></i></el-menu-item>
           </el-submenu>
-
         </el-submenu>
-
         <el-submenu index="2">
           <template slot="title">
             <i class="el-icon-user"></i>读者管理
@@ -38,7 +34,6 @@
             </el-menu-item>
           </el-submenu>
         </el-submenu>
-
         <el-submenu index="3">
           <template slot="title">
             <i class="el-icon-data-line"></i>运营管理
@@ -69,7 +64,6 @@
             </el-menu-item>
           </el-submenu>
         </el-submenu>
-
         <el-submenu index="4">
           <template slot="title">
             <i class="el-icon-s-custom "></i>管理员
@@ -79,14 +73,9 @@
           </el-menu-item>
           <el-menu-item index="/admin_users/list"><i class="el-icon-lock"></i>管理员列表<i class="el-icon-arrow-right"></i>
           </el-menu-item>
-
         </el-submenu>
-
-
-
       </el-menu>
     </el-aside>
-
     <el-container>
       <el-header style="text-align: right; font-size: 12px">
         <span style="margin-right:15px;font-size:14px;">{{user.username}}</span>
@@ -98,13 +87,9 @@
             <el-dropdown-item command="layout" divided>退出</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
-
-
       </el-header>
-
       <el-main>
         <router-view :key="$route.path"></router-view>
-
       </el-main>
     </el-container>
   </el-container>
@@ -144,7 +129,6 @@
           this.layout()
         }
       },
-
       editDate() {
         this.$router.push(`/admin_users/edit/${this.user._id}`)
       },
@@ -163,7 +147,6 @@
           this.user = res.data
         } 
       },
-
     },
     created() {
       this.fetch()

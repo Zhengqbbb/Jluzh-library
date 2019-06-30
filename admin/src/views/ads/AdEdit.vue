@@ -2,50 +2,35 @@
   <div class="about">
     <h1> {{id? '编辑' : '新建'}}广告位</h1>
     <el-form label-width="120px" @submit.native.prevent="saveform('model')" :model="model" :rules="rules" ref="model">
-
-
       <el-form-item label="广告位:" prop="name">
         <el-col :span="4">
           <el-input v-model="model.name"></el-input>
         </el-col>
       </el-form-item>
-
       <el-form-item label="广告">
         <el-button size="small" @click="model.items.push({})">
-        <i class="el-icon-plus"></i>添加广告项
-      </el-button>
-      <el-row type="flex" style="flex-wrap: wrap">
-        <el-col :md="14" v-for="(item,index) in model.items" :key="index">
-
-          <el-form-item label="跳转链接(URL)" >
-            <el-col >
-              <el-input v-model="item.url"></el-input>
-            </el-col>
-          </el-form-item>
-
-          <el-form-item label="图片" style="margin-top:20px;">
-            <el-upload class="avatar-uploader" :action="$http.defaults.baseURL + 'upload'" 
-            :headers="getAuthHeaders()"
-            :show-file-list="false"
-              :on-success="res => $set(item,'img',res.url)">
-              <img v-if="item.img" :src="item.img" class="avatar">
-              <i v-else class="el-icon-plus avatar-uploader-icon"></i>
-            </el-upload>
-          </el-form-item>
-
-          <el-form-item>
-            <el-button size="small" type="danger" @click="model.items.splice(index,1)">删除</el-button>
-          </el-form-item>
-
-          
-        </el-col>
-      </el-row>
-
-
+          <i class="el-icon-plus"></i>添加广告项
+        </el-button>
+        <el-row type="flex" style="flex-wrap: wrap">
+          <el-col :md="14" v-for="(item,index) in model.items" :key="index">
+            <el-form-item label="跳转链接(URL)">
+              <el-col>
+                <el-input v-model="item.url"></el-input>
+              </el-col>
+            </el-form-item>
+            <el-form-item label="图片" style="margin-top:20px;">
+              <el-upload class="avatar-uploader" :action="$http.defaults.baseURL + 'upload'" :headers="getAuthHeaders()"
+                :show-file-list="false" :on-success="res => $set(item,'img',res.url)">
+                <img v-if="item.img" :src="item.img" class="avatar">
+                <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+              </el-upload>
+            </el-form-item>
+            <el-form-item>
+              <el-button size="small" type="danger" @click="model.items.splice(index,1)">删除</el-button>
+            </el-form-item>
+          </el-col>
+        </el-row>
       </el-form-item>
-
-
-
       <el-form-item>
         <el-button type="primary" native-type="submit">保存</el-button>
       </el-form-item>
@@ -118,4 +103,3 @@
     }
   }
 </script>
-

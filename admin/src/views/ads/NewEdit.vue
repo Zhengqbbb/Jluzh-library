@@ -7,19 +7,16 @@
           <el-input v-model="model.name" input-width="240px" clearable></el-input>
         </el-col>
       </el-form-item>
-
       <el-form-item label="文章分类:" prop="category">
         <el-select v-model="model.categories" placeholder="请选择文章分类" label="文章分类" multiple>
           <el-option v-for="item in categories" :key="item._id" :label="item.name" :value="item._id"></el-option>
         </el-select>
       </el-form-item>
-
       <el-form-item label="文章内容:" prop="message">
         <el-col :span="14">
           <vue-editor v-model="model.body" useCustomImageHandler @imageAdded="handleImageAdded"></vue-editor>
         </el-col>
       </el-form-item>
-
       <el-form-item>
         <el-button type="primary" native-type="submit">保存</el-button>
       </el-form-item>

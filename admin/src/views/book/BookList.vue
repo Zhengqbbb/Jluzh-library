@@ -2,28 +2,10 @@
   <div class="about">
     <div>
       <h1>图书列表</h1>
-      <!-- style="margin-left:15px;" -->
-      <!-- <el-input v-model="search" placeholder="请输入内容"></el-input> -->
-      <!-- <el-form label-width="120px" @submit.native.prevent="byNameSearch"> -->
-      <!-- <el-form label-width="120px" @submit.native.prevent="byNameSearch('bookname')">
-        <el-col :span="5" style="margin=0px;">
-          <el-form-item>
-            <el-input placeholder="请输入图书名" v-model="bookname" class="input-with-select"></el-input>
-          </el-form-item>
-        </el-col>
-
-        <el-col :span="4" class="qb">
-          <el-form-item class="qb">
-            <el-button type="primary" icon="el-icon-search" native-type="submit" >搜索</el-button>
-          </el-form-item>
-        </el-col>
-      </el-form> -->
     </div>
-
     <el-table :data="items">
-
       <el-table-column prop="_id" label="图书编号" width="240"></el-table-column>
-      <el-table-column prop="name" label="图书名称" width="180"></el-table-column>
+      <el-table-column prop="name" label="图书名称" width="300"></el-table-column>
       <el-table-column prop="category.name" label="图书分类" width="150"></el-table-column>
       <el-table-column prop="author" label="作者" width="150"></el-table-column>
       <el-table-column prop="img" label="封面图片" width="200">
@@ -33,51 +15,84 @@
       </el-table-column>
       <el-table-column prop="total" label="图书数量" width="100"></el-table-column>
       <el-table-column prop="remain" label="图书剩余" width="100"></el-table-column>
-
-
-
-      <el-table-column fixed="right" label="操作" width="300">
+      <el-table-column fixed="right" width="300">
+        <template slot="header" slot-scope="scope">
+          <el-input class="search" v-model="search" prefix-icon="el-icon-search" clearable placeholder="输入图书名关键词搜索" />
+        </template>
         <template slot-scope="scope">
           <el-button type="primary" size="small" @click="$router.push(`/book/add/${scope.row._id}`)"
             icon="el-icon-circle-plus">入库</el-button>
-
           <el-button type="success" size="small" @click="$router.push(`/book/edit/${scope.row._id}`)"
             icon="el-icon-edit">修改
           </el-button>
           <el-button type="danger" size="small" @click="remove(scope.row)" icon="el-icon-delete">删除</el-button>
         </template>
       </el-table-column>
-
     </el-table>
-    <!--   <div style="margin-top:7px;">
-      <el-pagination background layout="prev, pager, next" :total="10"></el-pagination>
-    </div> -->
-
-
-    <!-- <el-backtop target=".page-component__scroll .el-scrollbar__wrap"></el-backtop> -->
+    <el-row :span="24">
+      <div class="pagination-list">
+        <el-pagination background @current-change="handleCurrentChange" :current-page.sync="paginations.page_index"
+          :page-size="paginations.page_size" :layout="paginations.layout" :total="paginations.total">
+        </el-pagination>
+      </div>
+    </el-row>
   </div>
 </template>
 
 <script>
   export default {
-
     data() {
       return {
         items: [],
-        bookname: ''
-
+        allItems: [],
+        search: '',
+        paginations: {
+          page_index: 1,
+          total: 0,
+          page_size: 7, //一页显示几条
+          layout: "prev, pager, next"
+        }
       }
     },
     methods: {
-      
-
-      async byNameSearch(bookname) {
-        const res = await this.$http.get(`/search/${this.bookname}`,this.bookname)
-        this.items = res.data
+      /**
+       * 搜索
+       */
+      searchItem() {
+        const searchItemdata = this.allItems.filter(data => !this.search || data.name.toLowerCase().includes(this.search
+          .toLowerCase()))
+        this.allItems = searchItemdata
+        this.setPaginations()
+      },
+      /**
+       * 初始化页码
+       */
+      setPaginations() {
+        this.paginations.total = this.allItems.length;
+        this.paginations.page_index = 1;
+        this.paginations.page_size = 7;
+        this.items = this.allItems.filter((tableitems, index) => {
+          return index < this.paginations.page_size
+        });
+      },
+      /**
+       * 点击页码跳转
+       */
+      handleCurrentChange(page) {
+        let index = this.paginations.page_size * (page - 1);
+        let items_num = this.paginations.page_size * page;
+        let tables = []
+        for (let i = index; i < items_num; i++) {
+          if (this.allItems[i]) {
+            tables.push(this.allItems[i]);
+          }
+          this.items = tables;
+        }
       },
       async fetch() {
         const res = await this.$http.get('book/books')
-        this.items = res.data
+        this.allItems = res.data
+        this.setPaginations()
       },
       async remove(row) {
         this.$confirm(`是否确定删除分类 "${row.name}"`, '提示', {
@@ -99,13 +114,26 @@
     },
     created() {
       this.fetch()
+    },
+    watch: {
+      search: function (new_v, old_v) {
+        if (new_v != '') {
+          this.searchItem()
+        } else {
+          this.fetch()
+        }
+      }
     }
   }
 </script>
 
 <style>
-.qb{
-  margin: 0px;
-  padding: 0px
-}
+  .el-icon-search {
+    margin-left: 6px;
+  }
+
+  .pagination-list {
+    margin-top: 1rem;
+    text-align: center;
+  }
 </style>

@@ -24,7 +24,7 @@
       </el-form-item>
 
       <el-form-item>
-        <el-button type="primary" native-type="submit">借阅</el-button>
+        <el-button type="primary" native-type="submit">归还</el-button>
       </el-form-item>
     </el-form>
   </div>

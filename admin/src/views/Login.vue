@@ -8,17 +8,13 @@
             <el-input v-model="model.username" clearable placeholder="请输入管理账号"></el-input>
           </el-col>
         </el-form-item>
-
         <el-form-item label="密码:" prop="password">
           <el-col :span="16">
             <el-input type="password" v-model="model.password" clearable placeholder="请输入密码"></el-input>
           </el-col>
         </el-form-item>
-
         <el-form-item style="margin:35px;">
-
           <el-button type="primary" native-type="submit">登录</el-button>
-
         </el-form-item>
       </el-form>
     </el-card>

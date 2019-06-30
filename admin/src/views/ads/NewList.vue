@@ -1,11 +1,9 @@
 <template>
   <div class="about">
     <h1>文章列表</h1>
-    <!-- filter(data => !search || data.name.toLowerCase().includes(search.toLowerCase()))" -->
     <el-table :data="items">
-
       <el-table-column prop="_id" label="ID"></el-table-column>
-      <el-table-column prop="name" label="文章标题"></el-table-column>
+      <el-table-column prop="name" width="600" label="文章标题"></el-table-column>
       <el-table-column prop="categories[0].name" label="文章分类"></el-table-column>
       <el-table-column prop="createdAt" label="创建时间">
         <template slot-scope="scope">{{ scope.row.createdAt | data }}</template>
@@ -29,13 +27,11 @@
         </el-pagination>
       </div>
     </el-row>
-
   </div>
 </template>
 
 <script>
   import dayjs from 'dayjs'
-
   export default {
     filters: {
       data(val) {
@@ -56,19 +52,29 @@
       }
     },
     methods: {
-      searchItem(){
-        const searchItemdata = this.allItems.filter(data => !this.search || data.name.toLowerCase().includes(this.search.toLowerCase()))
+      /**
+       * 搜索
+       */
+      searchItem() {
+        const searchItemdata = this.allItems.filter(data => !this.search || data.name.toLowerCase().includes(this.search
+          .toLowerCase()))
         this.allItems = searchItemdata
         this.setPaginations()
       },
+      /**
+       * 初始化页码
+       */
       setPaginations() {
         this.paginations.total = this.allItems.length;
         this.paginations.page_index = 1;
-        this.paginations.page_size = 5;
+        this.paginations.page_size = 10;
         this.items = this.allItems.filter((tableitems, index) => {
           return index < this.paginations.page_size
         });
       },
+      /**
+       * 点击页码跳转
+       */
       handleCurrentChange(page) {
         let index = this.paginations.page_size * (page - 1);
         let items_num = this.paginations.page_size * page;
@@ -93,7 +99,6 @@
         }).then(async () => {
           //请求接口
           const res = await this.$http.delete(`article/articles/${row._id}`)
-
           this.$message({
             type: 'success',
             message: '删除成功!'
@@ -107,10 +112,10 @@
       this.fetch()
     },
     watch: {
-      search:function(new_v,old_v){
-        if(new_v!=''){
+      search: function (new_v, old_v) {
+        if (new_v != '') {
           this.searchItem()
-        }else{
+        } else {
           this.fetch()
         }
       }

@@ -4,13 +4,13 @@
     <el-form label-width="120px" @submit.native.prevent="saveform('model')" :model="model" :rules="rules" ref="model">
       <el-form-item label="读者新密码:" prop="newpassword">
         <el-col :span="4">
-          <el-input v-model="model.newpassword" clearable autocomplete="off"></el-input>
+          <el-input type="password" v-model="model.newpassword" clearable autocomplete="off"></el-input>
         </el-col>
       </el-form-item>
 
       <el-form-item label="重复输入密码:" prop="password">
         <el-col :span="4">
-          <el-input v-model="model.password" clearable autocomplete="off"></el-input>
+          <el-input type="password" v-model="model.password" clearable autocomplete="off"></el-input>
         </el-col>
       </el-form-item>
       <el-form-item>

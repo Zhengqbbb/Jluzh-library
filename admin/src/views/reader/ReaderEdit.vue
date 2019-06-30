@@ -2,45 +2,37 @@
   <div class="about">
     <h1> 修改读者账户</h1>
     <el-form label-width="120px" @submit.native.prevent="saveform('model')" :model="model" :rules="rules" ref="model">
-
       <el-form-item label="读者学号:" prop="username">
         <el-col :span="4">
           <el-input v-model="model.username" clearable></el-input>
         </el-col>
       </el-form-item>
-
       <el-form-item label="读者姓名:">
         <el-col :span="4">
           <el-input v-model="model.name" clearable></el-input>
         </el-col>
       </el-form-item>
-
       <el-form-item label="读者邮箱:">
         <el-col :span="4">
           <el-input v-model="model.email" clearable></el-input>
         </el-col>
       </el-form-item>
-
       <el-form-item label="读者手机:">
         <el-col :span="4">
           <el-input v-model="model.phone" clearable></el-input>
         </el-col>
       </el-form-item>
-
       <el-form-item label="读者身份证:">
         <el-col :span="4">
           <el-input v-model="model.card" clearable></el-input>
         </el-col>
       </el-form-item>
-
       <el-form-item>
         <el-button type="primary" native-type="submit">保存</el-button>
       </el-form-item>
     </el-form>
   </div>
 </template>
-
-
 
 <script>
   export default {
@@ -81,7 +73,6 @@
           }
         })
       },
-
       async save() {
         let res = this.$http.put(`/reader/readers/${this.id}`, this.model)
         res = await this.$http.get('reader/readers')
@@ -95,7 +86,6 @@
         const res = await this.$http.get(`/reader/readers/${this.id}`)
         this.model = res.data
       },
-
     },
     created() {
       this.id && this.fetch()

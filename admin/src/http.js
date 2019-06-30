@@ -15,8 +15,6 @@ http.interceptors.request.use(function (config) {
   return Promise.reject(error);
 });
 
-
-
 //全局响应捕获错误,拦截器
 http.interceptors.response.use(res => {
   return res

@@ -7,22 +7,18 @@
           {{usermodel.username}}
         </el-col>
       </el-form-item>
-
       <el-form-item label="姓名:">
         <el-col :span="4">
           {{usermodel.name}}
         </el-col>
       </el-form-item>
     </el-form>
-
     <el-form label-width="120px" @submit.native.prevent="saveform('model')">
-
       <el-form-item label="借阅书籍:">
         <el-select v-model="model" placeholder="请选择借阅的书籍" label="借阅书籍" multiple>
           <el-option v-for="item in books" :key="item._id" :label="item.name" :value="item._id"></el-option>
         </el-select>
       </el-form-item>
-
       <el-form-item>
         <el-button type="primary" native-type="submit">借阅</el-button>
       </el-form-item>
@@ -40,11 +36,9 @@
         usermodel: {},
         books: [],
         model: [],
-
       }
     },
     methods: {
-
       saveform(model) {
         if (this.model.length == 0) {
           return this.$message({

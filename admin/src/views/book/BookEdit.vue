@@ -2,35 +2,28 @@
   <div class="about">
     <h1> {{id? '修改' : '新建'}}图书信息</h1>
     <el-form label-width="120px" @submit.native.prevent="saveform('model')" :model="model" :rules="rules" ref="model">
-
       <el-form-item label="图书名称:" prop="name">
         <el-col :span="4">
           <el-input v-model="model.name"></el-input>
         </el-col>
       </el-form-item>
-
       <el-form-item label="图书分类:" prop="category">
         <el-select v-model="model.category" placeholder="请选择图书分类" label="图书分类">
           <el-option v-for="item in categoryOption" :key="item._id" :label="item.name" :value="item._id"></el-option>
         </el-select>
       </el-form-item>
-
       <el-form-item label="作者:" prop="author">
         <el-col :span="4">
           <el-input v-model="model.author"></el-input>
         </el-col>
       </el-form-item>
-
       <el-form-item label="图书图片:" prop="img">
-        <el-upload class="avatar-uploader" :action="uploadUrl"
-        :headers="getAuthHeaders()"
-        :show-file-list="false"
+        <el-upload class="avatar-uploader" :action="uploadUrl" :headers="getAuthHeaders()" :show-file-list="false"
           :on-success="afterUpload" :before-upload="beforeAvatarUpload">
           <img v-if="model.img" :src="model.img" class="avatar">
           <i v-else class="el-icon-plus avatar-uploader-icon"></i>
         </el-upload>
       </el-form-item>
-
       <el-form-item label="图书数量:" prop="total" :rules="[
       { required: true, message: '数量不能为空',trigger: 'blur'},
       { type: 'number', message: '请输入数字',trigger: 'blur'}
@@ -47,14 +40,11 @@
           <el-input v-model.number="model.remain"></el-input>
         </el-col>
       </el-form-item>
-
       <el-form-item label="图书信息:" prop="message">
         <el-col :span="7">
           <el-input type="textarea" v-model="model.message"></el-input>
         </el-col>
       </el-form-item>
-      <!-- :before-upload="beforeAvatarUpload" -->
-
       <el-form-item>
         <el-button type="primary" native-type="submit">保存</el-button>
       </el-form-item>
@@ -73,7 +63,6 @@
       return {
         model: {},
         categoryOption: {},
-
         rules: {
           name: [{
               required: true,
@@ -123,15 +112,9 @@
               trigger: 'blur'
             }
           ],
-
-
-
-
         }
       }
     },
-
-
     methods: {
       saveform(model) {
         this.$refs[model].validate(valid => {

@@ -2,7 +2,6 @@
   <div class="about">
     <h1>分类列表</h1>
     <el-table :data="items">
-
       <el-table-column prop="_id" label="ID" ></el-table-column>
       <el-table-column prop="name" label="分类名称"></el-table-column>
       <el-table-column fixed="right" label="操作" width="180">
@@ -12,7 +11,6 @@
           <el-button type="danger" size="small" @click="remove(scope.row)" icon="el-icon-delete">删除</el-button>
         </template>
       </el-table-column>
-
     </el-table>
   </div>
 </template>

@@ -2,19 +2,16 @@
   <div class="about">
     <h1> 图书入库</h1>
     <el-form label-width="120px" @submit.native.prevent="saveform('form')" :model="form" ref="form">
-      
       <el-form-item label="图书名称">
         <el-col :span="4">
           <el-input v-model="model.name" :disabled="true"></el-input>
         </el-col>
       </el-form-item>
-
       <el-form-item label="图书现总数量">
         <el-col :span="4">
           <el-input v-model="model.total" :disabled="true"></el-input>
         </el-col>
       </el-form-item>
-
       <el-form-item label="图书入库数量" prop="value" :rules="[
       { required: true, message: '数量不能为空', trigger: 'blur'},
       { type: 'number', message: '请输入数字', trigger: 'blur'}
@@ -23,7 +20,6 @@
           <el-input v-model.number="form.value" @change="changBook()"></el-input>
         </el-col>
       </el-form-item>
-
       <el-form-item label="图书剩余">
         <el-col :span="4">
           <el-input v-model="model.remain" :disabled="true"></el-input>
@@ -37,8 +33,6 @@
   </div>
 </template>
 
-
-
 <script>
   export default {
     props: {
@@ -50,9 +44,7 @@
         form: {
           value: ''
         },
-      
       }
-
     },
     methods: {
       saveform(form) {
@@ -96,7 +88,6 @@
     },
 
     created() {
-      /* this.fetchCategoryOption() */
       this.id && this.fetch()
     }
   }

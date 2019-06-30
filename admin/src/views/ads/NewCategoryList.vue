@@ -2,7 +2,6 @@
   <div class="about">
     <h1>文章分类列表</h1>
     <el-table :data="items">
-
       <el-table-column prop="_id" label="ID" ></el-table-column>
       <el-table-column prop="name" label="分类名称"></el-table-column>
       <el-table-column fixed="right" label="操作" width="180">
@@ -12,7 +11,6 @@
           <el-button type="danger" size="small" @click="remove(scope.row)" icon="el-icon-delete">删除</el-button>
         </template>
       </el-table-column>
-
     </el-table>
   </div>
 </template>
@@ -37,7 +35,6 @@
         }).then(async () => {
           //请求接口
           const res = await this.$http.delete(`article/article_categories/${row._id}`)
-
           this.$message({
             type: 'success',
             message: '删除成功!'

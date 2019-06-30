@@ -22,7 +22,6 @@
     data() {
       return {
         model: {},
-        
         rules: {
           name: [{
               required: true,

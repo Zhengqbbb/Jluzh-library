@@ -2,7 +2,6 @@
   <div class="about">
     <h1>修改密码</h1>
     <el-form label-width="120px" @submit.native.prevent="saveform('model')" :model="model" :rules="rules" ref="model">
-
       <el-form-item label="输入新密码:" prop="newpassword">
         <el-col :span="4">
           <el-input type="password" v-model="model.newpassword" clearable autocomplete="off"></el-input>
@@ -13,15 +12,12 @@
           <el-input type="password" v-model="model.password" clearable autocomplete="off"></el-input>
         </el-col>
       </el-form-item>
-
       <el-form-item>
         <el-button type="primary" native-type="submit">修改</el-button>
       </el-form-item>
     </el-form>
   </div>
 </template>
-
-
 
 <script>
   export default {
@@ -51,7 +47,6 @@
       return {
         model: {},
         rules: {
-
           newpassword: [{
             validator: vaildatePass,
             trigger: 'blur'
@@ -85,7 +80,6 @@
           }
         })
       },
-
       async save() {
         const res = this.$http.put(`/admin/admin_users/${this.id}`, this.model)
         await this.$http.get('admin/admin_users')
@@ -95,8 +89,6 @@
           message: '修改成功'
         })
       },
-
-
     }
   }
 </script>
