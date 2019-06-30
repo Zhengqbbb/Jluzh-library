@@ -1,6 +1,11 @@
 Jluzh-library
 个人全栈课程设计——图书馆官网管理系统
 ===
+<style>
+p{
+  display:inline-block;
+}
+</style>
 * 很痛苦之前上传到git上面管理，没有贡献值！！！因为邮箱问题很痛苦2019：6-9~6-18
 ## 说明
 * admin 后台界面
