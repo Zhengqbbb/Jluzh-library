@@ -46,20 +46,24 @@
 ## 前台
 * 前台首页
 <img  src="./README-IMG/q-shouye.png">
+
 * 前台读者服务
 <img  src="./README-IMG/q-server.png">
+
 * 前台新闻公告
 </br>
 <img width="49%" style="display:inline-block;"  src="./README-IMG/q-articlist.png">
 <img width="49%" style="display:inline-block;"  src="./README-IMG/q-articinfo.png">
+
 * 前台馆内图书
 </br>
-<img width="49%" style="display:inline-block;" src="./README-IMG/q-book.png">
-<img width="49%" style="display:inline-block;"  src="./README-IMG/q-bookinfo.png">
+<img width="45%" style="display:inline-block;" src="./README-IMG/q-book.png">
+<img width="45%" style="display:inline-block;"  src="./README-IMG/q-bookinfo.png">
+
 * 前台我的图书馆
 </br>
-<img width="49%" style="display:inline-block;"  src="./README-IMG/q-login.png">
-<img width="49%" style="display:inline-block;"  src="./README-IMG/q-readerinfor.png">
+<img width="40%" style="display:inline-block;"  src="./README-IMG/q-login.png">
+<img width="40%" style="display:inline-block;"  src="./README-IMG/q-readerinfor.png">
 <img width="49%" style="display:inline-block;"  src="./README-IMG/q-readerditors.png">
 <img width="49%" style="display:inline-block;"  src="./README-IMG/q-readereditorp.png">
 * 前台馆内搜索
