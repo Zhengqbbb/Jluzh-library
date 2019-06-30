@@ -43,25 +43,21 @@
             <div class="reder-edit">
               <el-form class="reder-edit-form" label-width="120px" @submit.native.prevent="saveforminfor('reader')"
                 :model="reader" :rules="rules" ref="reader">
-
                 <el-form-item label="姓名:" prop="name">
                   <el-col :span="8">
                     <el-input v-model="reader.name" clearable></el-input>
                   </el-col>
                 </el-form-item>
-
                 <el-form-item label="邮箱:">
                   <el-col :span="8">
                     <el-input v-model="reader.email" clearable></el-input>
                   </el-col>
                 </el-form-item>
-
                 <el-form-item label="手机:">
                   <el-col :span="8">
                     <el-input v-model="reader.phone" clearable></el-input>
                   </el-col>
                 </el-form-item>
-
                 <el-form-item>
                   <el-button type="primary" native-type="submit">修改</el-button>
                 </el-form-item>
