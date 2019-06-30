@@ -43,46 +43,46 @@ Jluzh-library
 * dayjs 对时间戳进行格式化
 
 
- 图片预览：
+ 图片预览：(PS：可选择放大观看 CTRL+鼠标滑轮向前)
 ===
 # 前台
 
 ## 前台-首页
-<img  src="./README-IMG/q-shouye.png">
+<img  src="./screenshots/q-shouye.png">
 
 ## 前台-读者服务
-<img  src="./README-IMG/q-server.png">
+<img  src="./screenshots/q-server.png">
 
 ## 前台-新闻公告
 
 |                                                                                     |                                           |
 | --------------------------------------------------------------------------------------- | ------------------------------------------- |
-| ![](./README-IMG/q-articlist.png) 新闻公告列表                                                     | ![](./README-IMG/q-articinfo.png) 新闻公告详情       |
+| ![](./screenshots/q-articlist.png) 新闻公告列表                                                     | ![](./screenshots/q-articinfo.png) 新闻公告详情       |
 
 
 ## 前台-馆内图书
 
 |                                                                                     |                                           |
 | --------------------------------------------------------------------------------------- | ------------------------------------------- |
-| ![](./README-IMG/q-book.png) 图书列表                                                     | ![](./README-IMG/q-bookinfo.png) 图书详情       |
+| ![](./screenshots/q-book.png) 图书列表                                                     | ![](./screenshots/q-bookinfo.png) 图书详情       |
 
 ## 前台-我的图书馆
 
 |                                                                                       |                                            |
 | --------------------------------------------------------------------------------------- | ------------------------------------------- |
-| ![](./README-IMG/q-login.png) 读者登陆页                                                     | ![](./README-IMG/q-readerinfor.png) 读者详情页       |
-| ![](./README-IMG/q-readerditors.png) 读者修改资料                                           | ![](./README-IMG/q-readereditorp.png) 读者修改密码 |
+| ![](./screenshots/q-login.png) 读者登陆页                                                     | ![](./screenshots/q-readerinfor.png) 读者详情页       |
+| ![](./screenshots/q-readerditors.png) 读者修改资料                                           | ![](./screenshots/q-readereditorp.png) 读者修改密码 |
 | 
 
 ## 前台-馆内搜索
-<img  src="./README-IMG/q-search.png">
+<img  src="./screenshots/q-search.png">
 
 # 后台
 ## 后台-图书分类管理
 
 |                                                                                       |                                            |
 | --------------------------------------------------------------------------------------- | ------------------------------------------- |
-| ![](./README-IMG/h-bookcategorylist.png) 图书分类列表                                                     | ![](./README-IMG/h-bookcategory.png) 图书分类添加       |
+| ![](./screenshots/h-bookcategorylist.png) 图书分类列表                                                     | ![](./screenshots/h-bookcategory.png) 图书分类添加       |
 |
 
 
@@ -90,50 +90,50 @@ Jluzh-library
 
 |                                                                                       |                                            |
 | --------------------------------------------------------------------------------------- | ------------------------------------------- |
-| ![](./README-IMG/h-booklist.png) 图书列表                                                     | ![](./README-IMG/h-bookad.png) 图书入库       |
-| ![](./README-IMG/h-bookadd.png) 图书新增                                           | ![](./README-IMG/h-bookeditor.png) 图书修改 |
+| ![](./screenshots/h-booklist.png) 图书列表                                                     | ![](./screenshots/h-bookad.png) 图书入库       |
+| ![](./screenshots/h-bookadd.png) 图书新增                                           | ![](./screenshots/h-bookeditor.png) 图书修改 |
 
 ## 后台-读者管理
 
 |                                                                                       |                                            |
 | --------------------------------------------------------------------------------------- | ------------------------------------------- |
-| ![](./README-IMG/h-readerlist.png) 读者列表                                                     | ![](./README-IMG/h-readeradd.png) 读者添加       |
-| ![](./README-IMG/h-readerlend.png) 读者借书                                           | ![](./README-IMG/h-readerretrun.png) 读者还书 |
+| ![](./screenshots/h-readerlist.png) 读者列表                                                     | ![](./screenshots/h-readeradd.png) 读者添加       |
+| ![](./screenshots/h-readerlend.png) 读者借书                                           | ![](./screenshots/h-readerretrun.png) 读者还书 |
 
 ## 后台-广告管理
 
 |                                                                                       |                                            |
 | --------------------------------------------------------------------------------------- | ------------------------------------------- |
-| ![](./README-IMG/h-adlist.png) 广告列表                                                     | ![](./README-IMG/h-adadd.png) 广告添加       |
-| ![](./README-IMG/h-adeitor.png) 修改广告                                           | 
+| ![](./screenshots/h-adlist.png) 广告列表                                                     | ![](./screenshots/h-adadd.png) 广告添加       |
+| ![](./screenshots/h-adeitor.png) 修改广告                                           | 
 
 
 ## 后台-文章分类管理
 
 |                                                                                       |                                            |
 | --------------------------------------------------------------------------------------- | ------------------------------------------- |
-| ![](./README-IMG/h-articalcatroylist.png) 文章分类列表                                                     | ![](./README-IMG/h-articalcatroy.png) 文章分类添加       |
+| ![](./screenshots/h-articalcatroylist.png) 文章分类列表                                                     | ![](./screenshots/h-articalcatroy.png) 文章分类添加       |
 |
 
 ## 后台-新闻管理
 
 |                                                                                       |                                            |
 | --------------------------------------------------------------------------------------- | ------------------------------------------- |
-| ![](./README-IMG/h-articallist.png) 文章列表                                                     | ![](./README-IMG/h-articaladd.png) 文章添加       |
-| ![](./README-IMG/h-articaleditro.png) 修改文章                                          | 
+| ![](./screenshots/h-articallist.png) 文章列表                                                     | ![](./screenshots/h-articaladd.png) 文章添加       |
+| ![](./screenshots/h-articaleditro.png) 修改文章                                          | 
 
 ## 后台-服务管理
 
 |                                                                                       |                                            |
 | --------------------------------------------------------------------------------------- | ------------------------------------------- |
-| ![](./README-IMG/h-serverlist.png) 服务列表                                                     | ![](./README-IMG/h-serveradd.png) 服务添加       |
+| ![](./screenshots/h-serverlist.png) 服务列表                                                     | ![](./screenshots/h-serveradd.png) 服务添加       |
 |
 
 ## 后台-管理员管理
 
 |                                                                                       |                                            |
 | --------------------------------------------------------------------------------------- | ------------------------------------------- |
-| ![](./README-IMG/h-adminlist.png) 管理员列表                                                     | ![](./README-IMG/h-adminadd.png) 管理员添加       |
+| ![](./screenshots/h-adminlist.png) 管理员列表                                                     | ![](./screenshots/h-adminadd.png) 管理员添加       |
 |
 
 ---
