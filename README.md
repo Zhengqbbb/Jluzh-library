@@ -1,5 +1,6 @@
-# jluzh-library
+Jluzh-library
 个人全栈课程设计——图书馆官网管理系统
+===
 * 很痛苦之前上传到git上面管理，没有贡献值！！！因为邮箱问题很痛苦2019：6-9~6-18
 ## 说明
 * admin 后台界面
@@ -52,13 +53,13 @@
 
 * 前台新闻公告
 </br>
-<img width="49%" style="display:inline-block;"  src="./README-IMG/q-articlist.png">
-<img width="49%" style="display:inline-block;"  src="./README-IMG/q-articinfo.png">
+<img width="49%" style="display:inline-block;"  src="./README-IMG/q-articlist.png"><img width="49%" style="display:inline-block;"  src="./README-IMG/q-articinfo.png">
+
 
 * 前台馆内图书
 </br>
-<img width="45%" style="display:inline-block;" src="./README-IMG/q-book.png">
-<img width="45%" style="display:inline-block;"  src="./README-IMG/q-bookinfo.png">
+<img width="45%" style="display:inline-block;" src="./README-IMG/q-book.png"><img width="45%" style="display:inline-block;"  src="./README-IMG/q-bookinfo.png">
+
 
 * 前台我的图书馆
 </br>
