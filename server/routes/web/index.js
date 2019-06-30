@@ -175,44 +175,49 @@ module.exports = app => {
     res.send(model)
   })
 
-    //登录接口
-    router.post('/login', async (req, res) => {
-      const {
-        username,
-        password
-      } = req.body
-      const user = await Reader.findOne({
-        username: username
-      }).select('+password')
-      /* 原生处理，现在用http-assert处理 
-        下载:npm i http-assert */
-        if (!user) {
-        return res.status(422).send({
-          message: '账户不存在'
-        })
-      }
-      /* assert(user, 422, '账户不存在') */
-      const isValid = require('bcrypt').compareSync(password, user.password)
-     /*  assert(isValid, 422, '密码错误') */
-     if (!isValid) {
+  //登录接口
+  router.post('/login', async (req, res) => {
+    const {
+      username,
+      password
+    } = req.body
+    const user = await Reader.findOne({
+      username: username
+    }).select('+password')
+    /* 原生处理，现在用http-assert处理 
+      下载:npm i http-assert */
+    if (!user) {
+      return res.status(422).send({
+        message: '账户不存在'
+      })
+    }
+    /* assert(user, 422, '账户不存在') */
+    const isValid = require('bcrypt').compareSync(password, user.password)
+    /*  assert(isValid, 422, '密码错误') */
+    if (!isValid) {
       return res.status(422).send({
         message: '密码错误'
       })
     }
-  
-  
-      /**
-       * 安装token: npm i jsonwebtoken
-       */
-      const token = jwt.sign({
-        id: user.id,
-      }, app.get('secret'))
-      res.send({
-        token
-      })
+    /**
+     * 安装token: npm i jsonwebtoken
+     */
+    const token = jwt.sign({
+      id: user.id,
+    }, app.get('secret'))
+    res.send({
+      token
     })
+  })
 
-  
+  //馆内搜索接口
+  router.get('/search', async (req, res) => {
+    const books = await Book.find().populate('category').sort({
+      '_id': -1
+    }).lean()
+    res.send(books)
+  })
+
 
   app.use('/web/api', router)
 }

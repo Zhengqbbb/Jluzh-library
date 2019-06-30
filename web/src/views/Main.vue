@@ -24,7 +24,7 @@
           <router-link class="nav-link" to="/reader"> <i class="iconfont">&#xe615;</i>我的图书馆</router-link>
         </div>
         <div class="nav-item px-1 pt-2 mx-2">
-          <router-link class="nav-link" to="/login"> <i class="iconfont">&#xe63d;</i>馆内搜索</router-link>
+          <router-link class="nav-link" to="/search"> <i class="iconfont">&#xe63d;</i>馆内搜索</router-link>
         </div>
       </div>
     </div>
@@ -78,6 +78,8 @@
         } else if (this.$route.name == "reader") {
           this.active=0;
         }else if (this.$route.name == "login") {
+          this.active=0;
+        }else if (this.$route.name == "search") {
           this.active=0;
         }else if (this.$route.name == "book") {
           this.active=3;

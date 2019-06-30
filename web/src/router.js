@@ -10,6 +10,7 @@ import Server from './views/ad/Server.vue'
 import ServerInfor from './views/ad/ServerInfor.vue'
 import Login from './views/reader/Login.vue'
 import Reader from './views/reader/Reader.vue'
+import Search from './views/reader/Search.vue'
 
 Vue.use(Router)
 
@@ -30,6 +31,7 @@ export default new Router({
         },
         {path: '/login',name:'login',component:Login},
         {path: '/reader',name:'reader',component:Reader},
+        {path: '/search',name:'search',component:Search},
       ],
     },
     {
