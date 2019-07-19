@@ -3,8 +3,7 @@
     <qb-list :categories="newnavs">
       <template #items="{category}">
         <div class="new-list b-rl w-common">
-          <router-link tag="a" target="_blank" v-for="(news, index) in category.newsList" :key="index"
-            :to="`/new/infor/${news._id}`">
+          <router-link tag="a" target="_blank" v-for="(news, index) in category.newsList" :key="index" :to="`/new/infor/${news._id}`">
             <div class="new-item d-flex mx-4 my-1">
               <div class="new-category mx-2">[{{news.categoryName}}]</div>
               <div class="segmentation mr-2">|</div>
