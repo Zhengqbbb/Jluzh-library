@@ -136,5 +136,13 @@ Jluzh-library
 | ![](./screenshots/h-adminlist.png) 管理员列表                                                     | ![](./screenshots/h-adminadd.png) 管理员添加       |
 |
 
+
+##部署生产环境：test.qbenben.com
+* 生产环境编译  [done]
+* 购买服务器、购买域名 [done]
+* 域名解析 [done]
+* Nginx 安装和配置 [done]
+* MongoDB数据库安装和配置 [done]
+* Node.js安装、配置淘宝镜像 [done]
 ---
 学习途径：B站UP主源码：<a target="_blank" href="https://github.com/wxs77577/node-vue-moba">全栈之巅</a> 
