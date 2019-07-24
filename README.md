@@ -137,7 +137,7 @@ Jluzh-library
 |
 
 
-##部署生产环境：test.qbenben.com
+##部署生产环境：http://test.qbenben.com
 * 生产环境编译  [done]
 * 购买服务器、购买域名 [done]
 * 域名解析 [done]
