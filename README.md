@@ -137,14 +137,14 @@ Jluzh-library
 |
 
 
-##  发布和部署：http://test.qbenben.com
+##  发布和部署：http://library.qbenben.com
 * 生产环境编译  [done]
 * 购买服务器、购买域名 [done]
 * 域名解析 [done]
 * Nginx 安装和配置 [done]
 * MongoDB数据库安装和配置 [done]
 * Node.js安装、配置淘宝镜像 [done]
-* 拉取代码，安装pm2并启动项目
-* 配置 Nginx 的反向代理
----
+* 拉取代码，安装pm2并启动项目 [done]
+* 配置 Nginx 的反向代理 [done]
+--- 
 学习途径：B站UP主源码：<a target="_blank" href="https://github.com/wxs77577/node-vue-moba">全栈之巅</a> 
