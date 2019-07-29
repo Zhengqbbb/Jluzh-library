@@ -137,7 +137,8 @@ Jluzh-library
 |
 
 
-##  发布和部署：http://49.234.194.87/#/
+##  发布和部署：https://library.qbenben.com 
+域名目前还在备案中： http://library.qbenben.com 使用ssl证书到443端口绕了下备案
 * 生产环境编译  [done]
 * 购买服务器、购买域名 [done]
 * 域名解析 [done]
