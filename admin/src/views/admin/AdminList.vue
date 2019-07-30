@@ -4,13 +4,8 @@
       <h1>管理员列表</h1>
     </div>
     <el-table :data="items.filter(data => !search || data.name.toLowerCase().includes(search.toLowerCase()))">
-      <el-table-column prop="_id" label="管理员编号" ></el-table-column>
+      <el-table-column prop="_id" label="管理员编号"></el-table-column>
       <el-table-column prop="username" label="用户名"></el-table-column>
-      <el-table-column fixed="right" label="操作" width="300">
-        <template slot-scope="scope">
-          <el-button type="danger" size="small" @click="remove(scope.row)" icon="el-icon-delete">删除</el-button>
-        </template>
-      </el-table-column>
     </el-table>
   </div>
 </template>

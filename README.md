@@ -2,6 +2,7 @@ Jluzh-library
 个人全栈课程设计——图书馆官网管理系统
 ===
 * 很痛苦之前上传到git上面管理，没有贡献值！！！因为邮箱问题很痛苦2019：6-9~6-18
+* 请先安装 nodejs 10+ ，mongodb server，nodemon，vue cli 3
 ## 说明
 * admin 后台界面
 * server 整个项目的服务端
