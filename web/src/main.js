@@ -24,7 +24,7 @@ Vue.component('qb-book',BookCard)
 import axios from 'axios'
 import './plugins/element.js'
 const http = axios.create({
-    baseURL: process.env.VUE_APP_API_URL || '/web/api'
+  baseURL: process.env.VUE_APP_API_URL || '/web/api'
   //baseURL: 'http://localhost:3000/web/api'
 })
 

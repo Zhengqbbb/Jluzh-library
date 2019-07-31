@@ -3,7 +3,7 @@
     <div class="bookinfor w-common bd d-flex jc-center my-5 p-3">
       <div class="book-img  my-5"><img width="300px" :src="books.img" alt=""></div>
       <div class="book-infors mx-5">
-        <el-form ref="form"  label-width="200px">
+        <el-form ref="form" label-width="200px">
           <el-form-item class="book-infor" label="图书编号：">
             {{books._id}}
           </el-form-item>
@@ -66,6 +66,7 @@
     min-height: 705px;
     border-radius: 20px;
     box-shadow: 0 0 10px map-get($colors, 'grey');
+    overflow: hidden;
   }
 
   .book-infors {

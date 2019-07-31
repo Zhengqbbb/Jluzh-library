@@ -145,9 +145,10 @@ Jluzh-library
 * 域名解析 [done]
 * Nginx 安装和配置 [done]
 * MongoDB数据库安装和配置 [done]
+* 更新服务器MongoDB版本号 [done]
 * Node.js安装、配置淘宝镜像 [done]
 * 拉取代码，安装pm2并启动项目 [done]
 * 配置 Nginx 的反向代理 [done]
-* 由于代码中使用了mongodb的聚合管道查询首页的新闻列表，馆内图书。可是服务器上的mongodb版本太低不支持。导致获取bug [false]
+
 --- 
 学习途径：B站UP主源码：<a target="_blank" href="https://github.com/wxs77577/node-vue-moba">全栈之巅</a> 
