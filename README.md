@@ -1,4 +1,4 @@
-Jluzh-library
+Jluzh-library —— 目前网站还在备案中8.1
 个人全栈课程设计——图书馆官网管理系统
 ===
 * 很痛苦之前上传到git上面管理，没有贡献值！！！因为邮箱问题很痛苦2019：6-9~6-18
@@ -14,7 +14,6 @@ Jluzh-library
 * router 路由管理器，对路由进行管理
 * ElementUI 组件进行开发
 * axios 进行异步操作管理
-* localStorage 作登录状态管理
 * vue2-editor 作富文本编辑器
 * dayjs 对时间戳进行格式化
 
