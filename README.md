@@ -1,7 +1,6 @@
 Jluzh-library  
 个人全栈课程设计——图书馆官网管理系统
 ===
-# 目前网站还在备案中 2019-8-1 ———<br>前台：https://49.234.194.87 后台：https://49.234.194.87/admin IP端口访问需要点击高级，继续访问（无毒）
 * 很痛苦之前上传到git上面管理，没有贡献值！！！因为邮箱问题很痛苦2019：6-9~6-18
 * 请先安装 nodejs 10+ ，mongodb server，nodemon，vue cli 3
 ## 说明
@@ -138,8 +137,7 @@ Jluzh-library
 |
 
 
-##  发布和部署：https://library.qbenben.com 
-域名目前还在备案中： http://library.qbenben.com 使用ssl证书到443端口绕了下备案
+##  发布和部署：https://library.qbenben.com | https://library.qbenben.com/admin
 * 生产环境编译  [done]
 * 购买服务器、购买域名 [done]
 * 域名解析 [done]
