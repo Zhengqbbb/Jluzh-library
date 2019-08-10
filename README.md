@@ -1,4 +1,4 @@
-Jluzh-library —— https://library.qbenben.com
+Jluzh-library —— https://library.qbenben.com <br>
 个人全栈课程设计——图书馆官网管理系统
 ===
 * 很痛苦之前上传到git上面管理，没有贡献值！！！因为邮箱问题很痛苦2019：6-9~6-18
@@ -137,7 +137,7 @@ Jluzh-library —— https://library.qbenben.com
 |
 
 
-##  发布和部署：https://library.qbenben.com 
+##  发布和部署：https://library.qbenben.com | https://library.qbenben.com/admin
 * 生产环境编译  [done]
 * 购买服务器、购买域名 [done]
 * 域名解析 [done]
