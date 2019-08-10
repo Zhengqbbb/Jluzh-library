@@ -1,4 +1,4 @@
-Jluzh-library —— 目前网站还在备案中8.1
+Jluzh-library —— https://library.qbenben.com
 个人全栈课程设计——图书馆官网管理系统
 ===
 * 很痛苦之前上传到git上面管理，没有贡献值！！！因为邮箱问题很痛苦2019：6-9~6-18
@@ -138,7 +138,6 @@ Jluzh-library —— 目前网站还在备案中8.1
 
 
 ##  发布和部署：https://library.qbenben.com 
-域名目前还在备案中： http://library.qbenben.com 使用ssl证书到443端口绕了下备案
 * 生产环境编译  [done]
 * 购买服务器、购买域名 [done]
 * 域名解析 [done]
@@ -148,6 +147,7 @@ Jluzh-library —— 目前网站还在备案中8.1
 * Node.js安装、配置淘宝镜像 [done]
 * 拉取代码，安装pm2并启动项目 [done]
 * 配置 Nginx 的反向代理 [done]
-
+* 备案成功 [done]
+* 配置SSL证书 [done]
 --- 
 学习途径：B站UP主源码：<a target="_blank" href="https://github.com/wxs77577/node-vue-moba">全栈之巅</a> 
