@@ -137,7 +137,7 @@ Jluzh-library —— https://library.qbenben.com
 |
 
 
-##  发布和部署：https://library.qbenben.com 
+##  发布和部署：https://library.qbenben.com | https://library.qbenben.com/admin
 * 生产环境编译  [done]
 * 购买服务器、购买域名 [done]
 * 域名解析 [done]
