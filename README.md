@@ -29,6 +29,7 @@ Jluzh-library —— https://library.qbenben.com <br>
 * inflection 用于对传入路径字符串进行类名的转换
 * multer Express中间件实现前端传入文件进行保存
 * JSON Web Token 对登录状态码的生成以及验证
+* multer-aliyun-oss 阿里云对象存储OSS上传图片
 
 
 ## 前台前端
