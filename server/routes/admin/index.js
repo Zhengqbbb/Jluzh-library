@@ -8,18 +8,18 @@ module.exports = app => {
     mergeParams: true
   })
 
-//管理员修改密码接口
-/* router.post('/admin/api/checkpassword', async (req, res,) => {
-  const reqPassword = req.body
-  const user = await req.Model.findById(req.param.id).select('+password')
-  const isValid = require('bcrypt').compareSync(reqPassword , user.password)
-  assert(isValid, 422 , 原始密码错误) 
-}) */
+  //管理员修改密码接口
+  /* router.post('/admin/api/checkpassword', async (req, res,) => {
+    const reqPassword = req.body
+    const user = await req.Model.findById(req.param.id).select('+password')
+    const isValid = require('bcrypt').compareSync(reqPassword , user.password)
+    assert(isValid, 422 , 原始密码错误) 
+  }) */
 
   //新增数据接口
-  router.post('/', async (req, res,) => {
+  router.post('/', async (req, res, ) => {
     const model = await req.Model.create(req.body)
-    res.send(model)  
+    res.send(model)
   })
 
   //列表数据接口
@@ -27,17 +27,17 @@ module.exports = app => {
     const queryOptions = {}
     if (req.Model.modelName === 'Book') {
       queryOptions.populate = 'category'
-    }else if(req.Model.modelName === 'Article'){
+    } else if (req.Model.modelName === 'Article') {
       queryOptions.populate = 'categories'
     }
-    const items = await req.Model.find().sort({'_id':-1}).setOptions(queryOptions).limit(20)
+    const items = await req.Model.find().sort({ '_id': -1 }).setOptions(queryOptions).limit(20)
     res.send(items)
   })
 
   //获取详情接口
   router.get('/:id', async (req, res) => {
     const queryOptions = {}
-    if(req.Model.modelName === 'Reader'){
+    if (req.Model.modelName === 'Reader') {
       queryOptions.populate = 'lends'
     }
     const model = await req.Model.findById(req.params.id).setOptions(queryOptions).select('+message').select('+body')
@@ -67,54 +67,54 @@ module.exports = app => {
 
 
 
-/**
- * 登录验证处理函数中间件封装
- * auth
- * @param {*} req 
- * @param {*} res 
- * @param {*} next 
- */
-const authMiddleware = require('../../middleware/auth')
-  
+  /**
+   * 登录验证处理函数中间件封装
+   * auth
+   * @param {*} req 
+   * @param {*} res 
+   * @param {*} next 
+   */
+  const authMiddleware = require('../../middleware/auth')
+
 
 
   //图书资源路由
-  app.use('/admin/api/book/:resource', authMiddleware() ,async (req, res, next) => {
+  app.use('/admin/api/book/:resource', authMiddleware(), async (req, res, next) => {
     const modelName = require('inflection').classify(req.params.resource)
     req.Model = require(`../../models/book/${modelName}`)
     next()
   }, router)
 
   //用户资源路由
-  app.use('/admin/api/reader/:resource', authMiddleware() ,async (req, res, next) => {
+  app.use('/admin/api/reader/:resource', authMiddleware(), async (req, res, next) => {
     const modelName = require('inflection').classify(req.params.resource)
     req.Model = require(`../../models/reader/${modelName}`)
     next()
   }, router)
 
   //广告资源路由
-  app.use('/admin/api/ad/:resource', authMiddleware() ,async (req, res, next) => {
+  app.use('/admin/api/ad/:resource', authMiddleware(), async (req, res, next) => {
     const modelName = require('inflection').classify(req.params.resource)
     req.Model = require(`../../models/admin/${modelName}`)
     next()
   }, router)
-  
+
   //新闻公告路由
-  app.use('/admin/api/article/:resource', authMiddleware() ,async (req, res, next) => {
+  app.use('/admin/api/article/:resource', authMiddleware(), async (req, res, next) => {
     const modelName = require('inflection').classify(req.params.resource)
     req.Model = require(`../../models/admin/${modelName}`)
     next()
   }, router)
 
   //服务资源路由
-  app.use('/admin/api/server/:resource', authMiddleware() ,async (req, res, next) => {
+  app.use('/admin/api/server/:resource', authMiddleware(), async (req, res, next) => {
     const modelName = require('inflection').classify(req.params.resource)
     req.Model = require(`../../models/admin/${modelName}`)
     next()
   }, router)
 
   //管理员资源路由
-  app.use('/admin/api/admin/:resource', authMiddleware() ,async (req, res, next) => {
+  app.use('/admin/api/admin/:resource', authMiddleware(), async (req, res, next) => {
     const modelName = require('inflection').classify(req.params.resource)
     req.Model = require(`../../models/admin/${modelName}`)
     next()
@@ -138,12 +138,21 @@ const authMiddleware = require('../../middleware/auth')
    * 上传路由
    */
   const multer = require('multer')
+  const MAO = require('multer-aliyun-oss');
   const upload = multer({
-    dest: __dirname + '/../../uploads'
+    //dest: __dirname + '/../../uploads'
+    storage: MAO({
+      config: {
+        region: 'oss-cn-shenzhen',
+        accessKeyId: 'LTAIjEGFd2BoapVD',
+        accessKeySecret: 'Msit8rbBwZYMH1X6hjSt7RJMS4DRHM',
+        bucket: 'library-qbenben'
+      }
+    })
   })
-  app.post('/admin/api/upload', authMiddleware() ,upload.single('file'), async (req, res) => {
+  app.post('/admin/api/upload', authMiddleware(), upload.single('file'), async (req, res) => {
     const file = req.file
-    file.url = `http://localhost:3000/uploads/${file.filename}`
+    //file.url = `http://localhost:3000/uploads/${file.filename}`
     res.send(file)
   })
 
