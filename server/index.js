@@ -1,9 +1,12 @@
 const express = require("express")
+const compression = require('compression')
 
 const app = express()
 //全局JWT密钥
 app.set('secret', 'abcdfg')
 
+// 启用gzip
+app.use(compression());
 
 app.use(require('cors')())
 app.use(express.json())

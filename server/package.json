@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^3.0.6",
+    "compression": "^1.7.4",
     "cors": "^2.8.5",
     "express": "^5.0.0-alpha.7",
     "http-assert": "^1.4.1",
