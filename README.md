@@ -151,5 +151,7 @@ Jluzh-library —— https://library.qbenben.com <br>
 * 备案成功 [done]
 * 配置SSL证书 [done]
 * 使用阿里云OSS对象存储上传图片 [done]
+* CDN加速 [done]
+* gzip压缩 [done]
 --- 
 学习途径：B站UP主源码：<a target="_blank" href="https://github.com/wxs77577/node-vue-moba">全栈之巅</a> 
