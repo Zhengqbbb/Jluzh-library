@@ -2,7 +2,7 @@
  * @Author: qbenben 
  * @Date: 2019-07-14 00:43:09 
  * @Last Modified by: qbenben
- * @Last Modified time: 2019-08-13 01:41:54
+ * @Last Modified time: 2019-08-13 14:38:32
  * 打包后生成的静态文件目标路径文件夹和路径
  */
 const CompressionWebpackPlugin = require('compression-webpack-plugin');
@@ -31,14 +31,5 @@ module.exports = {
         "element-ui": "ELEMENT"
       }
     }
-  },
-  pwa: {
-    iconPaths: {
-      favicon32: 'favicon.ico',
-      favicon16: 'favicon.ico',
-      appleTouchIcon: 'favicon.ico',
-      maskIcon: 'favicon.ico',
-      msTileImage: 'favicon.ico'
-    }
-  },
+  }
 }

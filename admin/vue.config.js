@@ -2,7 +2,7 @@
  * @Author: qbenben 
  * @Date: 2019-07-14 00:43:09 
  * @Last Modified by: qbenben
- * @Last Modified time: 2019-08-13 01:55:36
+ * @Last Modified time: 2019-08-13 14:38:24
  * 打包后生成的静态文件目标路径文件夹和路径
  */
 const CompressionWebpackPlugin = require('compression-webpack-plugin');
@@ -28,15 +28,6 @@ module.exports = {
         "vue-router": "VueRouter",
         "axios": "axios",
       }
-    }
-  },
-  pwa: {
-    iconPaths: {
-      favicon32: 'favicon.ico',
-      favicon16: 'favicon.ico',
-      appleTouchIcon: 'favicon.ico',
-      maskIcon: 'favicon.ico',
-      msTileImage: 'favicon.ico'
     }
   },
 }
