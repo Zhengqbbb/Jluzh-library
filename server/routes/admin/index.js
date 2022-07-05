@@ -144,8 +144,8 @@ module.exports = app => {
     storage: MAO({
       config: {
         region: 'oss-cn-shenzhen',
-        accessKeyId: 'LTAIjEGFd2BoapVD',
-        accessKeySecret: 'Msit8rbBwZYMH1X6hjSt7RJMS4DRHM',
+        accessKeyId: 'LTXXXXXXXXX',
+        accessKeySecret: 'MsitXXXXXXXXX',
         bucket: 'library-qbenben'
       }
     })
